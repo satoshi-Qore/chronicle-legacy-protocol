@@ -75,6 +75,7 @@ A protocol memory layer could help future contributors understand who built what
 chronicle-legacy-protocol/
 |
 |-- README.md
+|-- CONTRIBUTING.md
 |
 |-- docs/
 |   |-- Architecture_Diagram.md
@@ -108,6 +109,7 @@ chronicle-legacy-protocol/
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
 - [Sample Decision Record](./research/sample-decision-record.md)
+- [Contribution Guidelines](./CONTRIBUTING.md)
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
 - [Use Cases](./research/use-cases.md)
 - [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
