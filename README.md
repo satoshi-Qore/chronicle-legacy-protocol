@@ -51,6 +51,7 @@ chronicle-legacy-protocol/
 |-- docs/
 |   |-- Architecture_Diagram.md
 |   |-- Protocol_Memory_Layer.md
+|   |-- Attestation_Model.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
 |   |-- 03-chronicle-archive.md
@@ -72,6 +73,7 @@ chronicle-legacy-protocol/
 
 - [Architecture Diagram](./docs/Architecture_Diagram.md)
 - [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md)
+- [Attestation Model](./docs/Attestation_Model.md)
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
 - [Use Cases](./research/use-cases.md)
 - [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
