@@ -59,8 +59,8 @@ A protocol memory layer could help future contributors understand who built what
 | Protocol Memory Layer | Drafted | Refine data model and evidence quality levels |
 | Proof of Contribution | Drafted | Define stronger claim categories and verification boundaries |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
-| Governance Context | Drafted | Add example decision records and governance memory scenarios |
-| Decision Record Template | Drafted | Test with a sample historical or hypothetical decision |
+| Governance Context | Drafted | Add more governance memory scenarios |
+| Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
 | Contributor Reputation | Drafted | Improve contextual reputation safeguards |
 | Chronicle Archive | Drafted | Define archival metadata and preservation risks |
 | Knowledge Inheritance | Drafted | Connect learning paths to archived contribution records |
@@ -92,6 +92,7 @@ chronicle-legacy-protocol/
 |   `-- 08-future-research.md
 |
 |-- research/
+|   |-- sample-decision-record.md
 |   |-- use-cases.md
 |   `-- ecosystem-scenarios.md
 |
@@ -106,6 +107,7 @@ chronicle-legacy-protocol/
 - [Attestation Model](./docs/Attestation_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
+- [Sample Decision Record](./research/sample-decision-record.md)
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
 - [Use Cases](./research/use-cases.md)
 - [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
