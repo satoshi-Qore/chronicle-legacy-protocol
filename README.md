@@ -49,6 +49,7 @@ chronicle-legacy-protocol/
 |-- README.md
 |
 |-- docs/
+|   |-- Architecture_Diagram.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
 |   |-- 03-chronicle-archive.md
@@ -65,6 +66,13 @@ chronicle-legacy-protocol/
 `-- manifesto/
     `-- chronicle-manifesto.md
 ```
+
+## Key Documents
+
+- [Architecture Diagram](./docs/Architecture_Diagram.md)
+- [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
+- [Use Cases](./research/use-cases.md)
+- [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
 
 ## Current Stage
 
