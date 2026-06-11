@@ -61,6 +61,8 @@ A protocol memory layer could help future contributors understand who built what
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
 | Governance Context | Drafted | Add more governance memory scenarios |
 | Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
+| Related Work | Drafted | Expand comparison with additional academic and open-source systems |
+| Threat Model | Drafted | Refine mitigations into future protocol requirements |
 | Contributor Reputation | Drafted | Improve contextual reputation safeguards |
 | Chronicle Archive | Drafted | Define archival metadata and preservation risks |
 | Knowledge Inheritance | Drafted | Connect learning paths to archived contribution records |
@@ -83,6 +85,8 @@ chronicle-legacy-protocol/
 |   |-- Attestation_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
+|   |-- Related_Work.md
+|   |-- Threat_Model.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
 |   |-- 03-chronicle-archive.md
@@ -108,6 +112,8 @@ chronicle-legacy-protocol/
 - [Attestation Model](./docs/Attestation_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
+- [Related Work](./docs/Related_Work.md)
+- [Threat Model](./docs/Threat_Model.md)
 - [Sample Decision Record](./research/sample-decision-record.md)
 - [Contribution Guidelines](./CONTRIBUTING.md)
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
