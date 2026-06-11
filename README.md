@@ -41,6 +41,34 @@ Blockchains often preserve transactions well, but they do not automatically pres
 
 A protocol memory layer could help future contributors understand who built what, why decisions were made, which knowledge should be inherited, and how reputation emerged from verified participation rather than speculation or visibility alone.
 
+## Research Roadmap
+
+| Phase | Focus | Expected Output | Status |
+|---|---|---|---|
+| Phase 1 | Conceptual foundation | Core vision, problem framing, architecture map, and protocol memory definition | In progress |
+| Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
+| Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
+| Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, and uncertainty handling | Planned |
+| Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | Planned |
+| Phase 6 | Specification and prototype research | Formal data models, privacy controls, validation flows, and possible implementation prototypes | Future research |
+
+## Research Status
+
+| Area | Current State | Next Research Need |
+|---|---|---|
+| Protocol Memory Layer | Drafted | Refine data model and evidence quality levels |
+| Proof of Contribution | Drafted | Define stronger claim categories and verification boundaries |
+| Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
+| Governance Context | Drafted | Add example decision records and governance memory scenarios |
+| Decision Record Template | Drafted | Test with a sample historical or hypothetical decision |
+| Contributor Reputation | Drafted | Improve contextual reputation safeguards |
+| Chronicle Archive | Drafted | Define archival metadata and preservation risks |
+| Knowledge Inheritance | Drafted | Connect learning paths to archived contribution records |
+| AI Mentor Layer | Drafted | Define source citation, uncertainty labeling, and hallucination safeguards |
+| Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
+| Chronicle Network | Drafted | Expand network-level architecture and access model |
+| Future Research | Drafted | Prioritize open questions for specification work |
+
 ## Repository Structure
 
 ```text
