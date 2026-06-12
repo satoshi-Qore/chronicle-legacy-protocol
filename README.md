@@ -146,6 +146,8 @@ chronicle-legacy-protocol/
     `-- chronicle-manifesto.md
 ```
 
+The numbered documents in `docs/` are early concept notes. They preserve the initial research framing of the project. The current architecture documents listed below should be treated as the primary reading path for public review.
+
 ## Key Documents
 
 - [Concept FAQ](./docs/Concept_FAQ.md)
@@ -167,6 +169,19 @@ chronicle-legacy-protocol/
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
 - [Use Cases](./research/use-cases.md)
 - [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
+
+## Early Concept Notes
+
+The following documents are shorter early-stage concept notes. They remain useful for understanding the original project framing, but they should not be treated as the most complete architecture documents where a newer model exists.
+
+- [01 - Proof of Contribution](./docs/01-proof-of-contribution.md)
+- [02 - Contributor Reputation](./docs/02-contributor-reputation.md)
+- [03 - Chronicle Archive](./docs/03-chronicle-archive.md)
+- [04 - Knowledge Inheritance](./docs/04-knowledge-inheritance.md)
+- [05 - AI Mentor Layer](./docs/05-ai-mentor-layer.md)
+- [06 - Legacy Protocol](./docs/06-legacy-protocol.md)
+- [07 - Chronicle Network](./docs/07-chronicle-network.md)
+- [08 - Future Research](./docs/08-future-research.md)
 
 ## Current Stage
 
