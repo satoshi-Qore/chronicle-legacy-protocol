@@ -8,7 +8,7 @@ This document is research-oriented. It does not define an implemented database s
 
 ## 1. Definition
 
-A **Memory Object** is a structured and verifiable memory record of something meaningful that occurred within an ecosystem.
+A **Memory Object** is a structured and verifiable memory record for an ecosystem contribution, decision, knowledge artifact, governance event, or mentorship interaction that has identifiable evidence and contextual relevance.
 
 A Memory Object is not the contribution itself. It is the record that describes, contextualizes, and preserves evidence about a contribution, decision, knowledge artifact, governance event, or mentorship interaction.
 
@@ -48,9 +48,11 @@ A future Memory Object may contain the following conceptual fields. These fields
 | `contributor_id` | Reference to the contributor, contributor group, maintainer, reviewer, or participant associated with the record |
 | `contribution_type` | Category such as documentation, research, governance, infrastructure, education, localization, security, or mentorship |
 | `evidence_links` | Source links, commits, pull requests, issues, documents, governance proposals, archived discussions, screenshots, or attestations supporting the record |
+| `evidence_quality` | Assessment of evidence strength, durability, and reviewability |
 | `timestamp` | Creation or occurrence time associated with the recorded event or artifact |
 | `attesters` | Individuals, maintainers, reviewers, communities, or processes that attest to the record or its evidence |
-| `reputation_weight` | Contextual indicator of relevance or importance; not a transferable score or universal ranking |
+| `attestation_scope` | Describes what the attestation confirms, such as authorship, usefulness, accuracy, merge status, governance relevance, or educational value |
+| `contextual_relevance` | Non-transferable indication of relevance within a specific context; this replaces speculative universal scoring |
 | `context_tags` | Tags describing ecosystem area, repository, language, topic, lifecycle phase, or participant role |
 | `lifecycle_status` | Current state of the Memory Object within the review and archival lifecycle |
 | `related_objects` | Links to other Memory Objects, decisions, knowledge records, governance events, or learning paths |
@@ -61,14 +63,38 @@ Additional fields may be studied in later specifications:
 
 | Field | Description |
 |---|---|
-| `evidence_quality` | Assessment of evidence strength, durability, and reviewability |
 | `privacy_level` | Visibility boundary such as public, limited, redacted, private, or consent-dependent |
 | `review_notes` | Human review comments, limitations, assumptions, or disputed points |
 | `revision_history` | Record of changes, corrections, disputes, and status updates |
 | `source_type` | Primary source, secondary source, summary, archive, or retrospective source |
 | `validity_scope` | Indicates whether the record is current, historical, deprecated, or disputed |
+| `duplicate_of` | Reference to an earlier object if the current record duplicates an existing Memory Object |
+| `redaction_status` | Indicates whether sensitive fields were removed or restricted |
 
-## 4. Lifecycle
+## 4. Object Identity and Versioning
+
+A Memory Object requires a stable identity model. The `object_id` should identify the record, not necessarily the underlying contribution itself. If the same contribution is later revised, disputed, expanded, or inherited into learning material, the original Memory Object should remain traceable.
+
+A future specification should define how `object_id` values are generated. Possible approaches include repository-based identifiers, content-derived identifiers, namespace-based identifiers, or protocol-assigned identifiers. At this research stage, the model only requires that identifiers be stable, unique within their namespace, and linkable from related records.
+
+Versioning should preserve history rather than overwrite it. Corrections, evidence updates, attestation changes, and lifecycle transitions should be recorded through `revision_history` or linked successor objects.
+
+## 5. Duplicate, Dispute, and Redaction Handling
+
+A serious memory system must handle repeated claims, conflicting claims, and sensitive records.
+
+| Concern | Architectural Treatment |
+|---|---|
+| Duplicate object | Mark with `duplicate_of` or merge through review while preserving audit history |
+| Conflicting attribution | Keep competing claims visible until reviewed; link dispute records rather than silently replacing one claim |
+| False or spam claim | Move to rejected, disputed, or archived status depending on review outcome |
+| Sensitive information | Apply redaction, limited visibility, or consent-dependent access |
+| Contributor removal request | Preserve historical integrity where necessary while supporting privacy-aware redaction |
+| Updated contribution | Create a revision entry or link a successor Memory Object |
+
+Deletion should not be the default mechanism for handling problematic records. In many cases, redaction, deprecation, dispute labeling, or archival status better preserves historical integrity while reducing harm.
+
+## 6. Lifecycle
 
 Memory Objects should move through explicit lifecycle stages. Lifecycle tracking prevents unreviewed, outdated, disputed, or archived records from being treated as current evidence.
 
@@ -76,15 +102,17 @@ Memory Objects should move through explicit lifecycle stages. Lifecycle tracking
 |---|---|
 | Created | A candidate Memory Object is created from a contribution, decision, knowledge artifact, governance event, or mentorship interaction |
 | Submitted | The object is submitted for review, indexing, or attestation |
+| Reviewed | The object receives human, maintainer, governance, or community review |
 | Attested | One or more reviewers, maintainers, participants, or processes attach an attestation or review statement |
+| Verified or Disputed | The object is either supported by sufficient evidence or marked as contested, incomplete, duplicated, or uncertain |
 | Indexed | The object becomes searchable within the Protocol Memory Layer |
 | Linked | The object is connected to contributors, repositories, decisions, governance proposals, educational resources, or other Memory Objects |
 | Inherited | The object becomes part of a learning path, knowledge inheritance record, handoff context, or AI-assisted retrieval flow |
 | Archived | The object is preserved for historical continuity, even if it is no longer active guidance |
 
-Lifecycle stages should preserve uncertainty. Attested does not always mean verified. Archived does not always mean obsolete. Inherited does not mean universally authoritative.
+Lifecycle stages should preserve uncertainty. Attested does not always mean verified. Verified does not mean permanent truth. Disputed does not mean false. Archived does not always mean obsolete. Inherited does not mean universally authoritative.
 
-## 5. Relationship Model
+## 7. Relationship Model
 
 Memory Objects are useful because they can form a structured graph of ecosystem memory. A single object may connect to multiple people, artifacts, decisions, and contexts.
 
@@ -116,9 +144,9 @@ Objects can preserve structured mentorship records such as onboarding help, tech
 
 Objects can reference each other to form chains of context. A bug report may link to a fix, a fix may link to a guide, a guide may link to onboarding material, and onboarding material may later be inherited by new contributors.
 
-## 6. Example Memory Objects
+## 8. Example Memory Objects
 
-The following examples are illustrative and do not represent a production schema.
+The following examples are illustrative and do not represent a production schema. Timestamps are examples only.
 
 ### Example 1: Turkish Light Node Guide
 
@@ -129,9 +157,11 @@ description: A Turkish-language guide explaining light node setup steps, configu
 contributor_id: pseudonymous community contributor
 contribution_type: documentation / localization / infrastructure education
 evidence_links: guide repository link, commit link, related issue or pull request
-timestamp: 2026-06-12
+evidence_quality: contextual
+timestamp: example timestamp
 attesters: community reviewer, maintainer, or operator feedback
-reputation_weight: contextual documentation relevance
+attestation_scope: confirms documentation relevance and operator usefulness
+contextual_relevance: Turkish onboarding and light node education
 context_tags: qorechain, light-node, turkish, onboarding, infrastructure
 lifecycle_status: indexed
 related_objects: operator onboarding guide, configuration troubleshooting note
@@ -146,9 +176,11 @@ description: A decision record preserving the reasoning, alternatives, and follo
 contributor_id: research contributor group
 contribution_type: governance / decision record / research planning
 evidence_links: decision record document, discussion notes, related roadmap update
-timestamp: 2026-06-12
+evidence_quality: accepted
+timestamp: example timestamp
 attesters: reviewers or research participants
-reputation_weight: contextual governance relevance
+attestation_scope: confirms that the record accurately reflects the documented decision context
+contextual_relevance: governance memory and research planning
 context_tags: governance, protocol-memory, decision-record, research
 lifecycle_status: linked
 related_objects: governance context document, research roadmap, sample decision record
@@ -162,10 +194,12 @@ title: Documentation Bug Report for RPC Configuration
 description: A bug or documentation issue describing unclear RPC endpoint and network configuration guidance.
 contributor_id: issue author
 evidence_links: issue link, maintainer response, related pull request
+evidence_quality: accepted
 contribution_type: issue reporting / documentation feedback
-timestamp: 2026-06-12
+timestamp: example timestamp
 attesters: maintainer response or merged follow-up PR
-reputation_weight: contextual quality-improvement relevance
+attestation_scope: confirms issue relevance and follow-up documentation impact
+contextual_relevance: documentation quality improvement
 context_tags: bug-report, documentation, rpc, network-configuration
 lifecycle_status: archived
 related_objects: documentation fix, light node setup guide
@@ -180,9 +214,11 @@ description: A guide helping new ecosystem participants understand basic concept
 contributor_id: community education contributor
 contribution_type: education / onboarding / documentation
 evidence_links: guide file, repository link, review comments
-timestamp: 2026-06-12
+evidence_quality: contextual
+timestamp: example timestamp
 attesters: community reviewers or maintainers
-reputation_weight: contextual education relevance
+attestation_scope: confirms educational relevance for new contributors
+contextual_relevance: beginner onboarding and ecosystem education
 context_tags: onboarding, community, education, beginner-resource
 lifecycle_status: inherited
 related_objects: glossary, FAQ, contributor guide, AI mentor retrieval source
@@ -196,16 +232,18 @@ title: AI Mentor Safety Model Research Note
 description: A research document defining safety boundaries for source-linked AI-assisted retrieval within a Protocol Memory Layer.
 contributor_id: research contributor
 evidence_links: research document link, README reference, commit link
+evidence_quality: contextual
 contribution_type: research / architecture / AI safety
-timestamp: 2026-06-12
+timestamp: example timestamp
 attesters: research reviewers or repository maintainers
-reputation_weight: contextual research relevance
+attestation_scope: confirms relevance to AI mentor safety research
+contextual_relevance: protocol memory research and AI-assisted retrieval safeguards
 context_tags: ai-mentor, safety-model, protocol-memory, research
 lifecycle_status: indexed
 related_objects: knowledge inheritance framework, threat model, evidence quality framework
 ```
 
-## 7. Design Principles
+## 9. Design Principles
 
 ### Verifiability
 
@@ -257,7 +295,7 @@ The Memory Object Model connects the main Chronicle components:
 6. Can Memory Objects support AI retrieval without encouraging oversimplified summaries?
 7. What revision model balances correction with historical integrity?
 8. Should object types be extensible by governance, maintainers, or contributors?
-9. How should reputation_weight be calculated without becoming a speculative score?
+9. How should contextual relevance be evaluated without becoming a speculative score?
 10. How can Memory Objects remain portable across ecosystems and future implementations?
 
 ## Conclusion
