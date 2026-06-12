@@ -55,6 +55,7 @@ This repository is organized as a layered research project. New readers can use 
 
 | Step | Document | Role in the Research |
 |---|---|---|
+| 0 | [Concept FAQ](./docs/Concept_FAQ.md) | Provides a quick question-and-answer introduction for new readers |
 | 1 | [Architecture Diagram](./docs/Architecture_Diagram.md) | Provides a high-level view of the Chronicle / Legacy Protocol research layers |
 | 2 | [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md) | Defines the central problem space and the purpose of protocol memory |
 | 3 | [Memory Object Model](./docs/Memory_Object_Model.md) | Defines the conceptual unit of record used to preserve contribution and knowledge context |
@@ -85,7 +86,7 @@ The map separates conceptual foundation, evidence and verification, knowledge tr
 | Area | Current State | Next Research Need |
 |---|---|---|
 | Protocol Memory Layer | Drafted | Align conceptual layer with memory object, lifecycle, and evidence quality models |
-| Memory Object Model | Drafted | Refine object fields, validation rules, and privacy boundaries |
+| Memory Object Model | Strengthened as foundational model | Refine object fields into future schema and validation rules |
 | Memory Lifecycle | Drafted | Refine transition rules, review gates, and archival criteria |
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
@@ -94,6 +95,7 @@ The map separates conceptual foundation, evidence and verification, knowledge tr
 | Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
 | Related Work | Drafted | Expand comparison with additional academic and open-source systems |
 | Threat Model | Drafted | Refine mitigations into future protocol requirements |
+| Concept FAQ | Drafted | Keep updated as architecture terms evolve |
 | Contributor Reputation | Drafted | Improve contextual reputation safeguards |
 | Chronicle Archive | Drafted | Define archival metadata and preservation risks |
 | Knowledge Inheritance | Framework drafted | Add sample learning paths and contributor handoff examples |
@@ -111,6 +113,7 @@ chronicle-legacy-protocol/
 |-- CONTRIBUTING.md
 |
 |-- docs/
+|   |-- Concept_FAQ.md
 |   |-- Architecture_Diagram.md
 |   |-- Protocol_Memory_Layer.md
 |   |-- Memory_Object_Model.md
@@ -143,6 +146,7 @@ chronicle-legacy-protocol/
 
 ## Key Documents
 
+- [Concept FAQ](./docs/Concept_FAQ.md)
 - [Architecture Diagram](./docs/Architecture_Diagram.md)
 - [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md)
 - [Memory Object Model](./docs/Memory_Object_Model.md)
