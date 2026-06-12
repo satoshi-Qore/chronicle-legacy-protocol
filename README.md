@@ -56,7 +56,7 @@ A protocol memory layer could help future contributors understand who built what
 | Phase 1 | Conceptual foundation | Core vision, problem framing, architecture map, memory object model, lifecycle model, evidence quality framework, and protocol memory definition | In progress |
 | Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
-| Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, and uncertainty handling | In progress |
+| Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
 | Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | Planned |
 | Phase 6 | Specification and prototype research | Formal data models, privacy controls, validation flows, and possible implementation prototypes | Future research |
 
@@ -77,7 +77,7 @@ A protocol memory layer could help future contributors understand who built what
 | Contributor Reputation | Drafted | Improve contextual reputation safeguards |
 | Chronicle Archive | Drafted | Define archival metadata and preservation risks |
 | Knowledge Inheritance | Framework drafted | Add sample learning paths and contributor handoff examples |
-| AI Mentor Layer | Drafted | Define source citation, uncertainty labeling, and hallucination safeguards |
+| AI Mentor Layer | Safety model drafted | Add retrieval policy examples and source-citation response patterns |
 | Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
 | Chronicle Network | Drafted | Expand network-level architecture and access model |
 | Future Research | Drafted | Prioritize open questions for specification work |
@@ -97,6 +97,7 @@ chronicle-legacy-protocol/
 |   |-- Memory_Lifecycle.md
 |   |-- Evidence_Quality_Framework.md
 |   |-- Knowledge_Inheritance_Framework.md
+|   |-- AI_Mentor_Safety_Model.md
 |   |-- Attestation_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
@@ -128,6 +129,7 @@ chronicle-legacy-protocol/
 - [Memory Lifecycle](./docs/Memory_Lifecycle.md)
 - [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md)
 - [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md)
+- [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
