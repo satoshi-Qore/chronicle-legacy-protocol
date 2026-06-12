@@ -53,7 +53,7 @@ A protocol memory layer could help future contributors understand who built what
 
 | Phase | Focus | Expected Output | Status |
 |---|---|---|---|
-| Phase 1 | Conceptual foundation | Core vision, problem framing, architecture map, and protocol memory definition | In progress |
+| Phase 1 | Conceptual foundation | Core vision, problem framing, architecture map, memory object model, and protocol memory definition | In progress |
 | Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, and uncertainty handling | Planned |
@@ -64,7 +64,8 @@ A protocol memory layer could help future contributors understand who built what
 
 | Area | Current State | Next Research Need |
 |---|---|---|
-| Protocol Memory Layer | Drafted | Refine data model and evidence quality levels |
+| Protocol Memory Layer | Drafted | Align conceptual layer with memory object model |
+| Memory Object Model | Drafted | Refine object fields, validation rules, and privacy boundaries |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
 | Governance Context | Drafted | Add more governance memory scenarios |
@@ -90,6 +91,7 @@ chronicle-legacy-protocol/
 |-- docs/
 |   |-- Architecture_Diagram.md
 |   |-- Protocol_Memory_Layer.md
+|   |-- Memory_Object_Model.md
 |   |-- Attestation_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
@@ -117,6 +119,7 @@ chronicle-legacy-protocol/
 
 - [Architecture Diagram](./docs/Architecture_Diagram.md)
 - [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md)
+- [Memory Object Model](./docs/Memory_Object_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
