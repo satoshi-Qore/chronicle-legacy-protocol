@@ -2,238 +2,243 @@
 
 ## Overview
 
-The Knowledge Inheritance Framework defines how archived ecosystem knowledge may be preserved, organized, reviewed, and transmitted to future participants. Within Chronicle / Legacy Protocol, knowledge inheritance is not treated as passive storage. It is a structured process for converting contribution records, governance context, operational lessons, and historical decisions into reusable learning context.
+The Knowledge Inheritance Framework defines how knowledge, experience, context, and contribution records can be discovered, referenced, extended, and transferred across generations of contributors within Chronicle / Legacy Protocol.
 
-The framework is intended for research and architectural analysis. It does not claim that knowledge inheritance can be fully automated, objectively ranked, or made permanent without review. Instead, it studies how decentralized ecosystems may reduce knowledge loss while preserving uncertainty, dispute history, and evidence quality.
+This document builds directly on the [Memory Object Model](./Memory_Object_Model.md). A Memory Object preserves a structured record. Knowledge Inheritance explains how those records remain useful beyond their original contributor, repository, decision, or time period.
 
-## Purpose
+The framework is architecture-focused. It does not define incentives, rewards, token mechanics, or governance outcomes. Its purpose is to describe how protocol memory can support long-term continuity of ecosystem knowledge.
 
-Knowledge inheritance addresses a recurring problem in decentralized ecosystems: valuable context often disappears when contributors leave, communication channels change, documentation becomes outdated, or governance decisions are separated from their original reasoning.
+## 1. Problem Statement
 
-The purpose of this framework is to:
+### Knowledge Loss in Decentralized Ecosystems
 
-- preserve lessons from verified contribution records;
-- connect historical decisions to their original context;
-- support onboarding for new contributors and maintainers;
-- reduce repeated operational, governance, and documentation mistakes;
-- distinguish current guidance from historical or deprecated knowledge;
-- provide source-linked context for future AI-assisted mentorship systems;
-- preserve contributor attribution without converting contribution history into permanent authority.
+Decentralized ecosystems often create knowledge faster than they preserve it. Technical explanations, bug fixes, governance reasoning, onboarding practices, operational lessons, and contributor experience may be distributed across repositories, chats, social platforms, forums, governance tools, and informal notes.
 
-## Problem Statement
+Without structured memory, useful knowledge can become difficult to rediscover even when the original artifacts still exist.
 
-Many decentralized ecosystems preserve transactions more reliably than they preserve knowledge. Technical discussions may happen in issue threads, chats, forums, governance portals, social media, calls, documentation repositories, and informal maintainer notes. Over time, this produces fragmentation.
+### Contributor Turnover
 
-The result is a knowledge continuity problem:
+Contributors may become inactive, change roles, leave an ecosystem, or move to other projects. When this happens, their practical knowledge often leaves with them. New contributors may not know which documents are current, which decisions shaped the project, or which earlier mistakes should not be repeated.
 
-- new contributors may repeat previously resolved debates;
-- governance participants may lack historical context;
-- infrastructure operators may lose operational lessons;
-- documentation may explain current instructions but not the reasoning behind them;
-- experienced contributors may leave without structured handoff material;
-- AI systems may summarize outdated or disputed information without clear source boundaries.
+Knowledge Inheritance addresses this continuity problem by allowing later contributors to reference, extend, and contextualize earlier Memory Objects.
 
-Chronicle / Legacy Protocol treats this as a protocol memory challenge rather than only a documentation problem.
+### Institutional Memory Challenges
 
-## Knowledge Inheritance and Archival Memory
+Open ecosystems rarely have a single institution responsible for preserving memory. Responsibility may be distributed across maintainers, contributors, governance participants, educators, infrastructure operators, and researchers.
 
-The Chronicle Archive preserves historical records. Knowledge inheritance interprets selected archived records for future use.
+This creates several challenges:
 
-| Layer | Primary Function | Example Output |
-|---|---|---|
-| Chronicle Archive | Preserve records and historical evidence | Stored decision records, contribution records, governance context |
-| Protocol Memory Layer | Structure records with metadata, evidence, and lifecycle state | Memory objects with source links, status, and review history |
-| Knowledge Inheritance Framework | Convert records into reusable learning context | Learning paths, handoff notes, lessons learned, contextual summaries |
-| AI Mentor Layer | Retrieve and explain inherited knowledge with uncertainty labels | Source-linked responses, onboarding guidance, historical explanations |
+- important reasoning may be separated from final decisions;
+- documentation may explain what to do but not why it changed;
+- governance history may lose context over time;
+- older contributors may be over-credited or forgotten;
+- repeated debates may occur because earlier conclusions are not discoverable;
+- AI-assisted systems may retrieve outdated or disputed information without proper lineage.
 
-This distinction is important. An archive may preserve what happened. Inheritance explains what future participants can responsibly learn from it.
+Chronicle treats these as protocol memory problems rather than only documentation problems.
 
-## Inheritable Knowledge Types
+## 2. Definition
 
-Not all ecosystem records are equally suitable for inheritance. Some records may be valuable for active guidance, while others may only provide historical context.
+**Knowledge Inheritance** is the process by which Memory Objects are discovered, referenced, extended, superseded, and reused so that ecosystem knowledge can remain available to future contributors.
 
-| Knowledge Type | What It Preserves | Example Source | Inheritance Use |
-|---|---|---|---|
-| Technical knowledge | Design reasoning, architecture trade-offs, implementation constraints | Pull requests, technical notes, architecture documents | Helps developers understand why systems are structured in a particular way |
-| Operational knowledge | Infrastructure lessons, node operation practices, monitoring patterns | Operator notes, incident reports, setup guides | Helps operators avoid repeated configuration or maintenance mistakes |
-| Governance knowledge | Proposal reasoning, objections, voting context, retrospective outcomes | Governance forums, decision records, meeting notes | Helps voters and contributors understand past decisions |
-| Community knowledge | Onboarding lessons, moderation norms, support practices | Community guides, support threads, educational material | Helps new participants learn ecosystem expectations |
-| Research knowledge | Open questions, literature reviews, conceptual models | Research notes, related work documents, whitepapers | Helps future researchers identify unresolved problems |
-| Localization knowledge | Translation patterns, regional onboarding needs, language-specific explanations | Localized guides, contributor notes | Helps preserve multilingual community learning |
-| Legacy knowledge | Historically significant contributions and transitions | Archive records, maintainer retrospectives | Helps preserve long-term ecosystem memory without creating permanent hierarchy |
+It is not passive archival storage. It is an architectural layer that links past records to future learning, contribution, governance, research, and mentorship contexts.
 
-## Inheritance Sources
+### Relationship to Memory Objects
 
-Knowledge inheritance depends on source material with traceable context. Potential sources include:
+A Memory Object is the unit of record. Knowledge Inheritance is the relationship layer that explains how records connect across time.
 
-- accepted or verified contribution records;
-- decision records and governance context documents;
-- technical architecture notes;
-- documentation pull requests and issue discussions;
-- incident reports and operational retrospectives;
-- contributor handoff notes;
-- community onboarding material;
-- research notes and related work analyses;
-- deprecated documentation with replacement references;
-- disputed records where multiple interpretations are preserved.
-
-The framework should avoid treating unsupported claims, unverifiable screenshots, or isolated social activity as strong inheritance sources without additional context.
-
-## Knowledge Transformation Process
-
-Knowledge inheritance requires transformation from raw records into structured learning material.
-
-| Stage | Purpose | Output |
-|---|---|---|
-| Source identification | Locate records that may contain reusable knowledge | Candidate memory objects or archive entries |
-| Evidence review | Evaluate source quality and verification status | Evidence label and confidence boundary |
-| Context extraction | Identify reasoning, constraints, trade-offs, and outcomes | Context summary |
-| Lesson formation | Convert historical context into reusable learning guidance | Lesson note or learning object |
-| Learning path placement | Assign knowledge to relevant contributor journeys | Onboarding, governance, operator, or research path |
-| Lifecycle labeling | Distinguish current, historical, disputed, or deprecated knowledge | Lifecycle-aware learning record |
-| Periodic review | Reassess whether the lesson remains valid | Updated, deprecated, or archived status |
-| AI retrieval preparation | Prepare source-linked summaries for AI mentor use | Citation-ready context with uncertainty labels |
-
-This process should remain reviewable. Knowledge inheritance should not automatically convert every archive record into educational material.
-
-## Learning Path Model
-
-Inherited knowledge can be organized into learning paths for different participant needs.
-
-| Learning Path | Intended Participant | Example Knowledge |
-|---|---|---|
-| Ecosystem onboarding | New community members | Project history, contribution norms, terminology |
-| Contributor onboarding | New contributors | Documentation workflows, issue handling, review expectations |
-| Infrastructure operator path | Node operators and technical maintainers | Setup history, configuration lessons, monitoring practices |
-| Governance participant path | Voters, delegates, proposal authors | Past decisions, governance rationale, unresolved debates |
-| Research path | Analysts and protocol researchers | Open research questions, related work, conceptual models |
-| Maintainer handoff path | New maintainers or coordinators | Role context, recurring risks, pending decisions, review practices |
-
-Learning paths should be treated as contextual guides rather than credentials or authority structures.
-
-## Decision-to-Lesson Conversion
-
-Decision records are especially important for knowledge inheritance because they preserve reasoning rather than only outcomes.
-
-A decision can be converted into an inherited lesson by extracting:
-
-1. the original problem;
-2. the options considered;
-3. the evidence available at the time;
-4. the decision rationale;
-5. known objections or disputed points;
-6. the implemented outcome, if any;
-7. retrospective findings;
-8. remaining limitations;
-9. guidance for future similar decisions.
-
-This conversion prevents governance memory from becoming a simple list of past votes or outcomes. It preserves why decisions were made and how future participants should interpret them.
-
-## Contributor and Maintainer Handoff
-
-Knowledge inheritance can support contributor and maintainer transitions. A handoff record may include:
-
-- role or responsibility context;
-- active areas of work;
-- important source links;
-- recurring problems;
-- known risks;
-- unresolved questions;
-- decision history;
-- deprecated practices;
-- recommended next steps;
-- privacy or sensitivity notes.
-
-Handoff records should avoid personal ranking and should not imply that previous contributors permanently control future interpretation. Their purpose is continuity, not hierarchy.
-
-## Lifecycle Awareness
-
-Knowledge inheritance must account for the lifecycle state of memory objects.
-
-| Lifecycle State | Inheritance Treatment |
+| Concept | Role |
 |---|---|
-| Draft | Not used for inherited guidance except as an unfinished note |
-| Submitted | May be reviewed as a candidate source, but not treated as settled |
-| Accepted | May support contextual learning if evidence is adequate |
-| Verified | Can support stronger learning material with source attribution |
-| Disputed | Should preserve competing interpretations and avoid final conclusions |
-| Revised | Should point to current version while preserving earlier context |
-| Archived | Useful for historical understanding, not necessarily current guidance |
-| Deprecated | Should be labeled as historical and linked to replacement knowledge |
-| Rejected | Generally excluded from guidance, except for abuse analysis or cautionary review |
+| Memory Object | Preserves a structured record of a contribution, decision, knowledge artifact, governance event, or mentorship interaction |
+| Knowledge Inheritance | Defines how Memory Objects can be referenced, extended, replaced, interpreted, and transferred across contributor generations |
+| Knowledge Lineage | The chain of related Memory Objects that shows how knowledge evolved |
+| Inherited Context | The reusable explanation, lesson, or reference derived from one or more Memory Objects |
 
-This prevents archived or outdated knowledge from being presented as current truth.
+A Memory Object can exist without being inherited. Knowledge Inheritance begins when another record references, extends, supersedes, or uses it as learning context.
 
-## Evidence Quality Requirements
+## 3. Inheritance Types
 
-Inherited knowledge should preserve evidence quality labels from the Evidence Quality Framework. A learning object should indicate whether it is based on weak, basic, contextual, accepted, or verified evidence.
+Different kinds of knowledge move through an ecosystem in different ways. The framework distinguishes five inheritance types.
 
-Evidence quality affects how the knowledge should be used:
+### Direct Inheritance
 
-- weak evidence may only support informal context;
-- basic evidence may support limited factual claims;
-- contextual evidence may support learning summaries;
-- accepted evidence may support onboarding material;
-- verified evidence may support stronger historical or operational guidance.
+Direct inheritance occurs when a later Memory Object explicitly builds on an earlier Memory Object.
 
-Evidence quality should not be hidden from users or AI-assisted systems. A future participant should be able to distinguish well-supported lessons from tentative observations.
+Example:
 
-## Relationship to the AI Mentor Layer
+```text
+Bug Report -> Fix Pull Request
+```
 
-The AI Mentor Layer may use inherited knowledge to answer questions, guide contributors, summarize governance history, or support onboarding. This creates additional risks.
+The later object inherits context from the earlier object because the fix cannot be fully understood without the original problem report.
 
-A knowledge-aware AI mentor should:
+### Educational Inheritance
 
-- cite source memory objects or documents;
-- distinguish current guidance from historical context;
-- identify disputed or deprecated material;
-- show uncertainty where evidence is incomplete;
-- avoid presenting archived records as official truth;
-- avoid replacing human review in governance or attestation decisions.
+Educational inheritance occurs when earlier contribution records become learning material for new contributors.
 
-Knowledge inheritance provides the structure that allows AI-assisted retrieval to be source-linked rather than purely generative.
+Example:
 
-## Relationship to Contributor Reputation
+```text
+Light Node Setup Fix -> Operator Guide -> Community Tutorial
+```
 
-Knowledge inheritance can preserve attribution for contributors who produced useful documentation, research, governance context, operational learning, or educational material. However, attribution should not become permanent authority.
+This type is important for onboarding, documentation, localization, and contributor education.
 
-The framework separates:
+### Governance Inheritance
 
-- recognition of contribution;
-- evidence quality of the record;
-- current relevance of the knowledge;
-- authority to make future decisions.
+Governance inheritance occurs when later decisions reference earlier decision records, governance context, objections, or retrospective findings.
 
-A contributor may be an important source of inherited knowledge without becoming the final authority over how that knowledge is interpreted later.
+Example:
 
-## Risks and Safeguards
+```text
+Proposal Discussion -> Decision Record -> Later Policy Update
+```
 
-| Risk | Description | Possible Safeguard |
+This preserves reasoning across time and helps prevent repeated governance debates without context.
+
+### Mentorship Inheritance
+
+Mentorship inheritance occurs when learning interactions, onboarding support, or contributor handoff records help future participants understand how to contribute.
+
+Example:
+
+```text
+Contributor Support Thread -> Onboarding Note -> AI Mentor Retrieval Source
+```
+
+This type must respect privacy, consent, and redaction boundaries.
+
+### Research Inheritance
+
+Research inheritance occurs when one research note, open question, or architecture document informs later research work.
+
+Example:
+
+```text
+Threat Model -> AI Mentor Safety Model -> Retrieval Policy Research
+```
+
+This allows the project to preserve intellectual continuity without treating early research notes as final conclusions.
+
+## 4. Relationship Model
+
+Knowledge Inheritance depends on explicit relationships between Memory Objects. These relationships allow contributors and future systems to understand how records connect.
+
+| Relationship | Meaning | Example |
 |---|---|---|
-| Outdated knowledge | Old guidance may become technically or socially incorrect | Lifecycle labels, periodic review, replacement links |
-| Selective memory | Only visible or powerful contributors may be remembered | Diverse source intake, dispute preservation, governance review |
-| Historical authority capture | Early contributors may gain excessive interpretive power | Contextual attribution, no permanent authority from legacy records |
-| AI distortion | AI systems may summarize records inaccurately | Source citations, uncertainty labels, restricted claims |
-| Privacy leakage | Handoff or archive records may expose sensitive information | Privacy levels, redaction rules, consent-aware publication |
-| Regional or language bias | Knowledge may overrepresent dominant languages or regions | Multilingual records, localization metadata, community review |
-| Oversimplification | Complex decisions may become simplified lessons | Decision-to-lesson structure with trade-offs and objections |
-| Governance manipulation | Historical records may be selectively used to influence decisions | Dispute history, evidence labels, retrospective review |
+| `inherits_from` | A Memory Object directly receives context or knowledge from an earlier object | A tutorial inherits from a setup guide |
+| `extends` | A later object expands or improves an earlier object without replacing it | A guide adds troubleshooting steps to an earlier installation note |
+| `references` | An object cites another object as supporting context | A decision record references a prior governance discussion |
+| `influenced_by` | An object was shaped by another object but does not directly depend on it | A research note is influenced by a threat model |
+| `supersedes` | A later object replaces earlier guidance or interpretation | A new configuration guide supersedes an outdated setup note |
 
-## Open Research Questions
+These relationships should be explicit rather than implied. A repository link alone does not explain whether a later object extends, replaces, or merely references an earlier one.
 
-- What criteria should determine whether a memory object becomes inherited knowledge?
-- How often should inherited knowledge be reviewed or deprecated?
-- How should conflicting lessons from disputed records be represented?
-- How can minority perspectives be preserved without creating noise?
-- What metadata is required for reliable AI-assisted retrieval?
-- How can multilingual knowledge inheritance be supported across regions?
-- How should private contributor knowledge be preserved without violating privacy?
-- What is the correct boundary between contributor attribution and contributor authority?
-- How can learning paths remain useful without becoming rigid certification systems?
-- How should inherited knowledge interact with future formal governance processes?
+## 5. Knowledge Lineage
 
-## Conclusion
+Knowledge lineage describes how knowledge evolves across multiple generations of Memory Objects. A lineage chain allows future contributors to trace how a problem, solution, lesson, and educational resource developed over time.
 
-Knowledge inheritance extends Chronicle / Legacy Protocol beyond archival preservation. It asks how ecosystem memory can become usable continuity for future contributors, operators, governance participants, researchers, and AI-assisted learning systems.
+Example lineage:
 
-The framework does not attempt to turn historical records into unquestionable truth. Its purpose is to preserve context, evidence, uncertainty, and lessons in a structured way. In this sense, knowledge inheritance is one of the main mechanisms through which a Protocol Memory Layer can support long-term ecosystem resilience.
+```text
+Bug Report -> Fix -> Documentation -> Tutorial -> Community Adoption
+```
+
+In Chronicle terms, this could become:
+
+```text
+Memory Object A: Bug report identifies unclear RPC configuration
+Memory Object B: Fix updates documentation or configuration example
+Memory Object C: Documentation guide explains the corrected process
+Memory Object D: Tutorial adapts the guide for new contributors
+Memory Object E: Community onboarding path references the tutorial
+```
+
+This lineage shows more than isolated contribution history. It shows how knowledge moved from problem discovery to practical adoption.
+
+### Lineage Requirements
+
+A useful lineage should preserve:
+
+- source Memory Objects;
+- relationship type;
+- evidence quality;
+- lifecycle status;
+- contributor attribution;
+- whether later guidance supersedes earlier guidance;
+- disputed or deprecated points;
+- current relevance.
+
+Without these properties, knowledge lineage may become a misleading chain of links rather than a reliable memory structure.
+
+## 6. Contributor Continuity
+
+Knowledge Inheritance helps preserve continuity when original contributors become inactive. The goal is not to freeze authority around early contributors. The goal is to keep their useful context discoverable, reviewable, and extendable.
+
+Contributor continuity may include:
+
+- preserving attribution to original contributors;
+- linking later work to earlier contributions;
+- allowing new contributors to extend or supersede older records;
+- marking outdated knowledge as deprecated rather than deleting it silently;
+- supporting maintainer handoff records;
+- preserving contributor context without turning it into permanent hierarchy.
+
+If the original contributor is inactive, later contributors should still be able to discover the original Memory Object, understand its evidence quality, and build on it responsibly.
+
+## 7. Design Principles
+
+### Attribution Preservation
+
+Knowledge should remain connected to the contributors, reviewers, maintainers, or communities that produced or improved it. Attribution should preserve memory without creating permanent authority.
+
+### Context Preservation
+
+Inherited knowledge should preserve why a record mattered, what problem it addressed, what assumptions existed, and what limitations were known at the time.
+
+### Verifiable Lineage
+
+Inheritance chains should be supported by Memory Object relationships and evidence links. A lineage should be inspectable rather than assumed.
+
+### Discoverability
+
+Inherited knowledge should be easy to find through tags, related objects, learning paths, repository references, governance records, and AI-assisted retrieval systems.
+
+### Long-Term Continuity
+
+The framework should preserve knowledge across contributor turnover, documentation changes, governance cycles, and ecosystem phases.
+
+### Human-Centered Memory
+
+Knowledge Inheritance should support human contributors. It should help people learn, maintain context, and avoid repeated mistakes. It should not reduce contributors to scores or treat AI-generated summaries as final truth.
+
+## 8. Relationship to Other Chronicle Layers
+
+| Layer | Relationship to Knowledge Inheritance |
+|---|---|
+| Memory Object Model | Provides the records that inheritance links together |
+| Memory Lifecycle | Determines whether inherited knowledge is current, disputed, deprecated, or archived |
+| Evidence Quality Framework | Helps future contributors judge how reliable inherited knowledge is |
+| Attestation Model | Supports review of whether inherited knowledge is accurate and useful |
+| Governance Context | Preserves decision reasoning that can be inherited by later governance processes |
+| AI Mentor Safety Model | Defines how inherited knowledge can be retrieved without losing uncertainty or source boundaries |
+| Chronicle Archive | Preserves historical records that may later become inherited knowledge |
+
+## 9. Open Questions
+
+- What criteria determine when one Memory Object should inherit from another?
+- How should conflicting inheritance chains be represented?
+- Can multiple later objects inherit from the same earlier object without creating duplicate or misleading lineage?
+- When should a later Memory Object supersede an earlier one instead of merely extending it?
+- How should deprecated knowledge remain discoverable without confusing new contributors?
+- What minimum evidence quality should be required for inherited knowledge?
+- How should private or sensitive mentorship records be inherited, summarized, or redacted?
+- How can contributor attribution be preserved without creating permanent authority?
+- How should AI-assisted systems display inherited knowledge and lineage chains?
+- What governance or review process should update inheritance relationships over time?
+
+## 10. Conclusion
+
+Knowledge Inheritance is the next foundational layer above the Memory Object Model. Memory Objects preserve structured records. Knowledge Inheritance explains how those records remain useful across time, contributors, decisions, documents, and learning paths.
+
+The framework focuses on continuity, attribution, context, and verifiable lineage. It avoids tokenomics, incentives, and speculative governance claims. Its purpose is to help Chronicle / Legacy Protocol preserve ecosystem knowledge in a way that future contributors can discover, evaluate, extend, and responsibly inherit.
