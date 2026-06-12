@@ -49,6 +49,26 @@ Blockchains often preserve transactions well, but they do not automatically pres
 
 A protocol memory layer could help future contributors understand who built what, why decisions were made, which knowledge should be inherited, and how reputation emerged from verified participation rather than speculation or visibility alone.
 
+## Research Map
+
+This repository is organized as a layered research project. New readers can use the map below as a suggested reading path.
+
+| Step | Document | Role in the Research |
+|---|---|---|
+| 1 | [Architecture Diagram](./docs/Architecture_Diagram.md) | Provides a high-level view of the Chronicle / Legacy Protocol research layers |
+| 2 | [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md) | Defines the central problem space and the purpose of protocol memory |
+| 3 | [Memory Object Model](./docs/Memory_Object_Model.md) | Defines the conceptual unit of record used to preserve contribution and knowledge context |
+| 4 | [Memory Lifecycle](./docs/Memory_Lifecycle.md) | Explains how records move through draft, review, verification, dispute, archival, and deprecation states |
+| 5 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
+| 6 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
+| 7 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 8 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 9 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 10 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 11 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+
+The map separates conceptual foundation, evidence and verification, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
+
 ## Research Roadmap
 
 | Phase | Focus | Expected Output | Status |
