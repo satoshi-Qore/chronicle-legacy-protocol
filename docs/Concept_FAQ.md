@@ -105,11 +105,14 @@ A suggested path is:
 1. [Architecture Diagram](./Architecture_Diagram.md)
 2. [Protocol Memory Layer](./Protocol_Memory_Layer.md)
 3. [Memory Object Model](./Memory_Object_Model.md)
-4. [Evidence Quality Framework](./Evidence_Quality_Framework.md)
-5. [Attestation Model](./Attestation_Model.md)
-6. [Knowledge Inheritance Framework](./Knowledge_Inheritance_Framework.md)
-7. [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md)
-8. [Threat Model](./Threat_Model.md)
-9. [Related Work](./Related_Work.md)
+4. [Memory Lifecycle](./Memory_Lifecycle.md)
+5. [Chronicle Archive Model](./Chronicle_Archive_Model.md)
+6. [Evidence Quality Framework](./Evidence_Quality_Framework.md)
+7. [Attestation Model](./Attestation_Model.md)
+8. [Knowledge Inheritance Framework](./Knowledge_Inheritance_Framework.md)
+9. [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md)
+10. [Governance Context](./Governance_Context.md)
+11. [Threat Model](./Threat_Model.md)
+12. [Related Work](./Related_Work.md)
 
-This reading path moves from architecture to verification, inheritance, AI safety, and broader research context.
+This reading path moves from the core architecture to memory records, lifecycle, archival preservation, verification, inheritance, AI safety, governance context, and broader research comparison.
