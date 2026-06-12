@@ -86,7 +86,7 @@ The map separates conceptual foundation, evidence and verification, knowledge tr
 | Area | Current State | Next Research Need |
 |---|---|---|
 | Protocol Memory Layer | Drafted | Align conceptual layer with memory object, lifecycle, and evidence quality models |
-| Memory Object Model | Strengthened as foundational model | Refine object fields into future schema and validation rules |
+| Memory Object Model | Refined foundational model | Formalize object identity, validation rules, and future schema constraints |
 | Memory Lifecycle | Drafted | Refine transition rules, review gates, and archival criteria |
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
