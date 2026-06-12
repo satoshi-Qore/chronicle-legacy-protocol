@@ -4,55 +4,68 @@
 
 This document provides a conceptual architecture diagram for Chronicle / Legacy Protocol. The diagram is not an implementation specification. It is a documentation-stage model showing how the main research components may relate to one another.
 
-Chronicle / Legacy Protocol is organized around a Protocol Memory Layer. This layer receives verified contribution records, preserves ecosystem knowledge, supports contextual reputation, and enables future knowledge inheritance through human and AI-assisted interfaces.
+Chronicle / Legacy Protocol is organized around a Protocol Memory Layer. The central unit of this layer is the Memory Object: a structured record that preserves contribution, evidence, context, lifecycle state, and relationships to other ecosystem knowledge.
 
 ## Conceptual Flow
 
 ```mermaid
 flowchart TD
-    A[Human Contribution] --> B[Proof of Contribution]
-    B --> C[Attestation Model]
-    C --> D[Protocol Memory Layer]
+    A["Human Contribution, Decision, or Knowledge Artifact"] --> B["Memory Object"]
 
-    D --> E[Chronicle Archive]
-    D --> F[Contributor Reputation]
-    D --> G[Knowledge Inheritance]
-    D --> H[Legacy Protocol]
+    B --> C["Evidence Quality Framework"]
+    B --> D["Attestation Model"]
+    B --> E["Memory Lifecycle"]
 
-    E --> I[Historical Records]
-    F --> J[Contextual Reputation]
-    G --> K[Contributor Learning Paths]
-    H --> L[Long-Term Ecosystem Memory]
+    C --> F["Protocol Memory Layer"]
+    D --> F
+    E --> F
 
-    I --> M[AI Mentor Layer]
-    J --> M
-    K --> M
-    L --> M
+    F --> G["Chronicle Archive"]
+    F --> H["Governance Context"]
+    F --> I["Contributor Reputation"]
 
-    M --> N[Chronicle Network]
-    N --> O[Governance Context]
-    N --> P[Research Interfaces]
-    N --> Q[Onboarding and Education]
+    G --> J["Knowledge Inheritance Framework"]
+    H --> J
+    I --> J
+
+    J --> K["AI Mentor Safety Model"]
+    G --> K
+
+    K --> L["Chronicle Network"]
+    J --> L
+    I --> L
+
+    L --> M["Research Interfaces"]
+    L --> N["Onboarding and Education"]
+    L --> O["Ecosystem Continuity"]
 ```
+
+## Memory Object as the Architectural Center
+
+The Memory Object is the main conceptual record used by Chronicle. It is not the contribution itself. It is a structured memory record that may describe a contribution, decision, knowledge artifact, governance event, or mentorship interaction.
+
+A Memory Object may include evidence links, contributor identity references, attestation scope, evidence quality, lifecycle status, contextual tags, and relationships to other Memory Objects. This allows Chronicle to preserve not only that something happened, but also what evidence supports it, how it was reviewed, and how it connects to later knowledge.
 
 ## Layer Explanation
 
 | Layer | Role |
 |---|---|
-| Human Contribution | Source of ecosystem work, including code, documentation, research, governance, education, and infrastructure |
-| Proof of Contribution | Converts contribution claims into structured, evidence-aware records |
-| Attestation Model | Defines how contributions are reviewed, validated, disputed, or accepted |
-| Protocol Memory Layer | Core conceptual layer preserving verified contribution and ecosystem context |
-| Chronicle Archive | Stores historical records, decisions, contribution events, and knowledge artifacts |
+| Human Contribution, Decision, or Knowledge Artifact | Source activity or context that may be worth preserving as ecosystem memory |
+| Memory Object | Structured record that represents contribution, evidence, context, lifecycle state, and relationships |
+| Evidence Quality Framework | Interprets the reliability, completeness, and uncertainty of supporting evidence |
+| Attestation Model | Defines how records may be reviewed, accepted, disputed, rejected, or revised |
+| Memory Lifecycle | Defines record states from creation through review, verification, dispute, archival, and deprecation |
+| Protocol Memory Layer | Core conceptual layer that organizes Memory Objects into durable ecosystem memory |
+| Chronicle Archive | Preserves historical records, source references, decision context, and knowledge artifacts |
 | Contributor Reputation | Interprets verified contribution history without reducing it to a transferable score |
-| Knowledge Inheritance | Preserves lessons, reasoning, operational knowledge, and contributor experience |
-| AI Mentor Layer | Helps users navigate archived knowledge with source-linked and uncertainty-aware assistance |
-| Legacy Protocol | Maintains long-term memory while avoiding permanent hierarchy or closed contributor status |
+| Governance Context | Preserves reasoning, trade-offs, and decision history around governance activity |
+| Knowledge Inheritance Framework | Connects older Memory Objects to future learning, handoff, and research contexts |
+| AI Mentor Safety Model | Defines safe, source-linked, uncertainty-aware retrieval and explanation boundaries |
 | Chronicle Network | Broader coordination layer connecting archives, reputation, governance, research, and onboarding |
 
 ## Research Boundaries
 
-This architecture should be read as a conceptual model. It does not claim that any smart contract, module, token, or production infrastructure currently exists. Future work should define data models, privacy controls, attestation schemas, governance safeguards, and implementation prototypes separately.
+This architecture should be read as a conceptual model. It does not claim that any smart contract, module, token, or production infrastructure currently exists. Future work should define data models, privacy controls, attestation schemas, governance safeguards, archival policies, and implementation prototypes separately.
 
 ## Design Principle
 
