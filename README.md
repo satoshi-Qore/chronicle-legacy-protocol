@@ -98,7 +98,7 @@ The map separates conceptual foundation, evidence and verification, knowledge tr
 | Concept FAQ | Drafted | Keep updated as architecture terms evolve |
 | Contributor Reputation | Drafted | Improve contextual reputation safeguards |
 | Chronicle Archive | Drafted | Define archival metadata and preservation risks |
-| Knowledge Inheritance | Framework drafted | Add sample learning paths and contributor handoff examples |
+| Knowledge Inheritance | Refined architecture model | Add concrete lineage examples and inheritance review criteria |
 | AI Mentor Layer | Safety model drafted | Add retrieval policy examples and source-citation response patterns |
 | Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
 | Chronicle Network | Drafted | Expand network-level architecture and access model |
