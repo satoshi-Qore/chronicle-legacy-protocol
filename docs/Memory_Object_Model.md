@@ -2,183 +2,234 @@
 
 ## Overview
 
-The Memory Object Model defines the conceptual unit of record for Chronicle / Legacy Protocol. A memory object represents a structured record of contribution, governance context, ecosystem knowledge, decision history, or archival evidence within the broader Protocol Memory Layer.
+The Memory Object Model is the foundational architecture document for Chronicle / Legacy Protocol. It defines the conceptual unit of record used by a Protocol Memory Layer to preserve contribution history, governance context, knowledge artifacts, decision records, and mentorship-related interactions.
 
-This document is research-oriented. It does not define an implemented data schema, database model, or smart contract format. Its purpose is to clarify what types of information a future Protocol Memory Layer may need to preserve, review, revise, and retrieve.
+This document is research-oriented. It does not define an implemented database schema, smart contract format, or production data model. Its purpose is to clarify what information a future protocol memory system may need to preserve, verify, connect, index, and retrieve.
 
-## Purpose
+## 1. Definition
 
-The Protocol Memory Layer requires a common way to describe ecosystem memory. Without a shared object model, contribution records, governance decisions, knowledge artifacts, attestations, and AI mentor responses may remain fragmented across separate systems.
+A **Memory Object** is a structured and verifiable memory record of something meaningful that occurred within an ecosystem.
 
-The Memory Object Model aims to:
+A Memory Object is not the contribution itself. It is the record that describes, contextualizes, and preserves evidence about a contribution, decision, knowledge artifact, governance event, or mentorship interaction.
 
-- define the basic structure of a protocol memory record;
-- distinguish different memory object types;
-- connect records to evidence and source material;
-- preserve review, attestation, dispute, and revision state;
-- support contextual reputation without universal scoring;
-- provide source-linked material for knowledge inheritance and AI-assisted retrieval;
-- preserve privacy and disclosure boundaries.
+For example:
 
-## Core Memory Object Fields
+- a guide is the contribution;
+- the Memory Object records who contributed it, what it explains, where the evidence is located, how it was reviewed, which ecosystem area it relates to, and how it connects to later knowledge or reputation context.
 
-A future memory object may include the following conceptual fields:
+Memory Objects provide a common structure for preserving events and artifacts that would otherwise remain scattered across repositories, forums, documents, governance systems, social platforms, and private contributor knowledge.
 
-| Field | Purpose |
+## 2. Purpose
+
+A Protocol Memory Layer needs a consistent way to represent ecosystem memory. Without a shared model, contribution records, decisions, attestations, knowledge artifacts, and learning context may remain fragmented and difficult to verify.
+
+Memory Objects are needed to:
+
+- preserve contribution history without reducing it to raw activity counts;
+- connect records to evidence, context, and review state;
+- support contributor reputation without speculative scoring;
+- preserve governance reasoning and decision history;
+- transform archived records into inherited knowledge;
+- support AI-assisted retrieval with source-linked context;
+- make ecosystem history searchable, portable, and reviewable over time;
+- protect against spam, false claims, and unsupported reputation inflation.
+
+A Memory Object is therefore a bridge between human contribution and protocol-level memory.
+
+## 3. Core Fields
+
+A future Memory Object may contain the following conceptual fields. These fields should be treated as a research model, not as a final implementation schema.
+
+| Field | Description |
 |---|---|
-| Memory ID | Unique reference for the memory object |
-| Object Type | Contribution, governance, knowledge, decision, archive, or retrospective record |
-| Title | Short human-readable description |
-| Summary | Concise explanation of the record and its context |
-| Contributor Reference | Contributor, group, maintainer, or governance participant associated with the record |
-| Source References | Links, hashes, documents, issues, pull requests, proposals, or archived evidence |
-| Evidence Quality | Assessment of source completeness, durability, and reviewability |
-| Attestation Status | Claimed, observed, reviewed, accepted, verified, disputed, rejected, revised, or archived |
-| Context Tags | Topic, repository, governance area, language, ecosystem phase, or contribution category |
-| Review Notes | Human review comments, limitations, assumptions, or disputed points |
-| Privacy Level | Public, limited, redacted, private, or consent-dependent visibility |
-| Revision History | Record of changes, corrections, disputes, and status updates |
-| Related Objects | Links to related decisions, contributions, knowledge records, or governance events |
-| Created Date | Date the memory object was created |
-| Updated Date | Date the memory object was last revised |
+| `object_id` | Unique identifier for the Memory Object |
+| `title` | Short human-readable title |
+| `description` | Summary of the contribution, decision, knowledge artifact, governance event, or mentorship interaction |
+| `contributor_id` | Reference to the contributor, contributor group, maintainer, reviewer, or participant associated with the record |
+| `contribution_type` | Category such as documentation, research, governance, infrastructure, education, localization, security, or mentorship |
+| `evidence_links` | Source links, commits, pull requests, issues, documents, governance proposals, archived discussions, screenshots, or attestations supporting the record |
+| `timestamp` | Creation or occurrence time associated with the recorded event or artifact |
+| `attesters` | Individuals, maintainers, reviewers, communities, or processes that attest to the record or its evidence |
+| `reputation_weight` | Contextual indicator of relevance or importance; not a transferable score or universal ranking |
+| `context_tags` | Tags describing ecosystem area, repository, language, topic, lifecycle phase, or participant role |
+| `lifecycle_status` | Current state of the Memory Object within the review and archival lifecycle |
+| `related_objects` | Links to other Memory Objects, decisions, knowledge records, governance events, or learning paths |
 
-These fields should be treated as a research starting point. A future specification may simplify, extend, or separate them depending on implementation requirements.
+### Optional Research Fields
 
-## Memory Object Types
+Additional fields may be studied in later specifications:
 
-Different ecosystem records require different interpretation rules. A single memory object model should support multiple types without forcing all records into one category.
-
-| Object Type | Description | Example |
-|---|---|---|
-| Contribution Record | Preserves evidence of meaningful work | Documentation update, issue report, research note, infrastructure guide |
-| Governance Record | Preserves decision-making context | Proposal summary, vote context, implementation status |
-| Knowledge Record | Preserves reusable ecosystem knowledge | Setup lesson, operational note, onboarding explanation |
-| Decision Record | Captures the reasoning behind an ecosystem choice | Technical direction, governance decision, research conclusion |
-| Archive Record | Preserves external or historical material | Forum thread, article, repository snapshot, meeting notes |
-| Retrospective Record | Revisits earlier decisions or contributions after outcomes are known | Post-decision review, incident lesson, governance outcome review |
-| Dispute Record | Documents contested claims or interpretations | Challenge to attribution, evidence conflict, correction request |
-
-## Contribution Records
-
-Contribution records describe meaningful human participation. They should not automatically treat all activity as valuable. A contribution record should preserve both evidence and context.
-
-Possible contribution record fields include:
-
-- contribution category;
-- contributor reference;
-- evidence source;
-- claimed scope;
-- review status;
-- relevance note;
-- limitations;
-- related governance or knowledge objects;
-- dispute status.
-
-Contribution records may later inform contextual reputation, but they should not become reputation scores by default.
-
-## Governance Records
-
-Governance records preserve the reasoning and evidence around collective decisions. They should include more than vote results.
-
-Possible governance record fields include:
-
-- proposal title;
-- problem statement;
-- decision rationale;
-- options considered;
-- contributor input;
-- evidence references;
-- voting or decision outcome;
-- implementation status;
-- retrospective review;
-- disputed interpretations.
-
-Governance records connect directly to the Governance Context and Decision Record Template documents.
-
-## Knowledge Records
-
-Knowledge records preserve reusable learning material for future contributors. They may include technical lessons, operational practices, contributor handoff notes, or explanations of past decisions.
-
-Possible knowledge record fields include:
-
-- knowledge topic;
-- source contribution or decision;
-- intended audience;
-- current validity;
-- learning path tags;
-- related documents;
-- uncertainty level;
-- maintenance status.
-
-Knowledge records support the Knowledge Inheritance and AI Mentor Layer components.
-
-## Evidence and Source References
-
-Memory objects should remain linked to evidence. Evidence may include:
-
-- pull requests;
-- issues;
-- commits;
-- governance proposals;
-- forum discussions;
-- public articles;
-- documentation pages;
-- screenshots with redaction;
-- signed attestations;
-- archived source material;
-- retrospective notes.
-
-A memory object should distinguish primary evidence from summaries. Summaries are interpretations; sources are the basis for review.
-
-## Attestation and Review State
-
-A memory object may pass through several review states:
-
-| State | Meaning |
+| Field | Description |
 |---|---|
-| Claimed | Submitted but not reviewed |
-| Observed | Evidence exists and can be inspected |
-| Reviewed | Human or governance review has occurred |
-| Accepted | A relevant maintainer, reviewer, or process accepted the record |
-| Verified | Strong evidence supports the record with clear scope |
-| Disputed | The record is challenged or incomplete |
-| Revised | The record was corrected or updated |
-| Rejected | The record was found misleading, false, duplicated, or out of scope |
-| Archived | The record is preserved for history but not treated as active evidence |
+| `evidence_quality` | Assessment of evidence strength, durability, and reviewability |
+| `privacy_level` | Visibility boundary such as public, limited, redacted, private, or consent-dependent |
+| `review_notes` | Human review comments, limitations, assumptions, or disputed points |
+| `revision_history` | Record of changes, corrections, disputes, and status updates |
+| `source_type` | Primary source, secondary source, summary, archive, or retrospective source |
+| `validity_scope` | Indicates whether the record is current, historical, deprecated, or disputed |
 
-Review states should preserve limitations and uncertainty. Verification should not be interpreted as permanent truth.
+## 4. Lifecycle
 
-## Revision and Dispute History
+Memory Objects should move through explicit lifecycle stages. Lifecycle tracking prevents unreviewed, outdated, disputed, or archived records from being treated as current evidence.
 
-A credible memory system must support correction. Memory objects should include revision and dispute history so future readers can understand how interpretation changed over time.
-
-Revision history may track:
-
-- changed fields;
-- reason for revision;
-- reviewer or editor reference;
-- previous status;
-- updated status;
-- related dispute records;
-- timestamp of change.
-
-Dispute handling is especially important for contribution attribution, governance interpretation, and reputation-sensitive records.
-
-## Privacy and Disclosure Levels
-
-Memory objects may contain sensitive information. A future model should avoid unnecessary exposure of identity, infrastructure details, private conversations, or personal history.
-
-Possible disclosure levels include:
-
-| Level | Description |
+| Stage | Description |
 |---|---|
-| Public | Fully visible record and evidence |
-| Limited | Visible summary with restricted evidence |
-| Redacted | Sensitive fields removed or obscured |
-| Private | Stored only for authorized review contexts |
-| Consent-dependent | Requires contributor or affected-party approval |
+| Created | A candidate Memory Object is created from a contribution, decision, knowledge artifact, governance event, or mentorship interaction |
+| Submitted | The object is submitted for review, indexing, or attestation |
+| Attested | One or more reviewers, maintainers, participants, or processes attach an attestation or review statement |
+| Indexed | The object becomes searchable within the Protocol Memory Layer |
+| Linked | The object is connected to contributors, repositories, decisions, governance proposals, educational resources, or other Memory Objects |
+| Inherited | The object becomes part of a learning path, knowledge inheritance record, handoff context, or AI-assisted retrieval flow |
+| Archived | The object is preserved for historical continuity, even if it is no longer active guidance |
 
-Privacy design should be treated as a core requirement, not a later interface issue.
+Lifecycle stages should preserve uncertainty. Attested does not always mean verified. Archived does not always mean obsolete. Inherited does not mean universally authoritative.
+
+## 5. Relationship Model
+
+Memory Objects are useful because they can form a structured graph of ecosystem memory. A single object may connect to multiple people, artifacts, decisions, and contexts.
+
+### Contributors
+
+A Memory Object may reference contributors who created, reviewed, translated, maintained, disputed, or improved a contribution. This supports attribution while avoiding permanent authority based only on identity.
+
+### Repositories
+
+Objects can link to repositories, pull requests, commits, issues, release notes, documentation pages, and configuration examples. Repository links provide durable technical evidence when available.
+
+### Decisions
+
+Objects can connect to decision records that explain why a technical, governance, or community choice was made. This allows future readers to understand reasoning rather than only outcomes.
+
+### Governance Proposals
+
+Objects can preserve proposal context, voting rationale, contributor input, objections, implementation status, and retrospective analysis.
+
+### Educational Resources
+
+Objects can link to guides, tutorials, glossaries, onboarding material, translations, and research notes. This helps turn contribution history into reusable learning paths.
+
+### Mentorship Interactions
+
+Objects can preserve structured mentorship records such as onboarding help, technical explanations, troubleshooting support, or AI-assisted learning interactions, when privacy and consent boundaries allow it.
+
+### Other Memory Objects
+
+Objects can reference each other to form chains of context. A bug report may link to a fix, a fix may link to a guide, a guide may link to onboarding material, and onboarding material may later be inherited by new contributors.
+
+## 6. Example Memory Objects
+
+The following examples are illustrative and do not represent a production schema.
+
+### Example 1: Turkish Light Node Guide
+
+```text
+object_id: chronicle-example-guide-tr-lightnode-001
+title: Turkish Light Node Setup Guide
+description: A Turkish-language guide explaining light node setup steps, configuration notes, and common operator issues.
+contributor_id: pseudonymous community contributor
+contribution_type: documentation / localization / infrastructure education
+evidence_links: guide repository link, commit link, related issue or pull request
+timestamp: 2026-06-12
+attesters: community reviewer, maintainer, or operator feedback
+reputation_weight: contextual documentation relevance
+context_tags: qorechain, light-node, turkish, onboarding, infrastructure
+lifecycle_status: indexed
+related_objects: operator onboarding guide, configuration troubleshooting note
+```
+
+### Example 2: Governance Decision Record
+
+```text
+object_id: chronicle-example-governance-decision-001
+title: Governance Decision Record for Protocol Memory Research Direction
+description: A decision record preserving the reasoning, alternatives, and follow-up questions behind adopting Protocol Memory Layer research as a project direction.
+contributor_id: research contributor group
+contribution_type: governance / decision record / research planning
+evidence_links: decision record document, discussion notes, related roadmap update
+timestamp: 2026-06-12
+attesters: reviewers or research participants
+reputation_weight: contextual governance relevance
+context_tags: governance, protocol-memory, decision-record, research
+lifecycle_status: linked
+related_objects: governance context document, research roadmap, sample decision record
+```
+
+### Example 3: Bug Report
+
+```text
+object_id: chronicle-example-bug-report-001
+title: Documentation Bug Report for RPC Configuration
+description: A bug or documentation issue describing unclear RPC endpoint and network configuration guidance.
+contributor_id: issue author
+evidence_links: issue link, maintainer response, related pull request
+contribution_type: issue reporting / documentation feedback
+timestamp: 2026-06-12
+attesters: maintainer response or merged follow-up PR
+reputation_weight: contextual quality-improvement relevance
+context_tags: bug-report, documentation, rpc, network-configuration
+lifecycle_status: archived
+related_objects: documentation fix, light node setup guide
+```
+
+### Example 4: Community Onboarding Guide
+
+```text
+object_id: chronicle-example-onboarding-001
+title: Community Onboarding Guide for New Contributors
+description: A guide helping new ecosystem participants understand basic concepts, contribution paths, and documentation resources.
+contributor_id: community education contributor
+contribution_type: education / onboarding / documentation
+evidence_links: guide file, repository link, review comments
+timestamp: 2026-06-12
+attesters: community reviewers or maintainers
+reputation_weight: contextual education relevance
+context_tags: onboarding, community, education, beginner-resource
+lifecycle_status: inherited
+related_objects: glossary, FAQ, contributor guide, AI mentor retrieval source
+```
+
+### Example 5: Research Contribution
+
+```text
+object_id: chronicle-example-research-001
+title: AI Mentor Safety Model Research Note
+description: A research document defining safety boundaries for source-linked AI-assisted retrieval within a Protocol Memory Layer.
+contributor_id: research contributor
+evidence_links: research document link, README reference, commit link
+contribution_type: research / architecture / AI safety
+timestamp: 2026-06-12
+attesters: research reviewers or repository maintainers
+reputation_weight: contextual research relevance
+context_tags: ai-mentor, safety-model, protocol-memory, research
+lifecycle_status: indexed
+related_objects: knowledge inheritance framework, threat model, evidence quality framework
+```
+
+## 7. Design Principles
+
+### Verifiability
+
+A Memory Object should remain connected to evidence. Claims should be reviewable through source links, attestations, repository history, governance records, or archived references.
+
+### Context Preservation
+
+A Memory Object should preserve surrounding context: why the contribution mattered, what problem it addressed, what limitations existed, and how it connects to later records.
+
+### Non-Speculative Reputation
+
+Memory Objects may inform contextual reputation, but they should not automatically generate universal scores. Reputation should be derived from evidence-aware interpretation, not speculation or activity volume.
+
+### Resistance to Spam
+
+The model should discourage low-quality submissions, duplicate claims, unverifiable records, artificial engagement, and reputation inflation. Review state, evidence quality, and attestation requirements are central safeguards.
+
+### Portability
+
+Memory Objects should be portable across tools, repositories, archives, and future protocol implementations. The concept should not depend on a single platform or interface.
+
+### Long-Term Discoverability
+
+Memory Objects should remain findable over time through identifiers, tags, related objects, and archive references. Discoverability is necessary for governance memory, knowledge inheritance, and AI-assisted retrieval.
 
 ## Relationship to Chronicle Architecture
 
@@ -186,49 +237,31 @@ The Memory Object Model connects the main Chronicle components:
 
 | Component | Relationship |
 |---|---|
-| Protocol Memory Layer | Uses memory objects as the basic unit of structured memory |
-| Proof of Contribution | Produces contribution-focused memory objects |
-| Attestation Model | Defines how memory objects are reviewed and status-labeled |
+| Protocol Memory Layer | Uses Memory Objects as the basic unit of structured memory |
+| Proof of Contribution | Produces contribution-focused Memory Objects |
+| Attestation Model | Defines how Memory Objects are reviewed and status-labeled |
 | Contributor Reputation | Interprets accepted records in context-specific ways |
-| Governance Context | Uses governance and decision memory objects |
-| Chronicle Archive | Preserves source material and historical memory objects |
-| Knowledge Inheritance | Converts memory objects into reusable learning paths |
-| AI Mentor Layer | Retrieves and summarizes source-linked memory objects |
+| Governance Context | Uses governance and decision Memory Objects |
+| Chronicle Archive | Preserves source material and historical Memory Objects |
+| Knowledge Inheritance | Converts Memory Objects into reusable learning paths |
+| AI Mentor Layer | Retrieves and summarizes source-linked Memory Objects |
 | Legacy Protocol | Preserves long-term contributor and ecosystem history |
-
-## Example Memory Object
-
-```text
-Memory ID: chronicle-example-001
-Object Type: Contribution Record
-Title: Documentation improvement for light node configuration
-Summary: Contributor submitted documentation feedback and configuration guidance for new node operators.
-Contributor Reference: pseudonymous contributor profile
-Source References: issue link, pull request link, merged commit link
-Evidence Quality: Maintainer-confirmed repository evidence
-Attestation Status: Accepted
-Context Tags: documentation, infrastructure, light node, onboarding
-Review Notes: Contribution scope limited to documentation and configuration examples.
-Privacy Level: Public
-Revision History: Initial record, later linked to merged pull request
-Related Objects: operator onboarding knowledge record, configuration guide record
-```
-
-This example is illustrative and not a production schema.
 
 ## Open Research Questions
 
-1. Which fields are required for all memory objects, and which should remain type-specific?
-2. How should memory objects represent uncertainty without becoming unusable?
+1. Which fields are required for all Memory Objects, and which should remain type-specific?
+2. How should Memory Objects represent uncertainty without becoming unusable?
 3. What evidence should be preserved directly, and what should remain as external references?
 4. How should privacy rights interact with long-term archival goals?
 5. How should disputed records appear in contributor reputation or governance history?
-6. Can memory objects support AI retrieval without encouraging oversimplified summaries?
+6. Can Memory Objects support AI retrieval without encouraging oversimplified summaries?
 7. What revision model balances correction with historical integrity?
 8. Should object types be extensible by governance, maintainers, or contributors?
+9. How should reputation_weight be calculated without becoming a speculative score?
+10. How can Memory Objects remain portable across ecosystems and future implementations?
 
 ## Conclusion
 
-The Memory Object Model is a foundational research component for Chronicle / Legacy Protocol. It gives structure to the idea of protocol memory by defining what a record may contain, how it connects to evidence, how it changes over time, and how it supports other layers such as reputation, governance context, knowledge inheritance, and AI-assisted retrieval.
+The Memory Object Model is the central architectural foundation of Chronicle / Legacy Protocol. It gives structure to the idea of protocol memory by defining what a record may contain, how it connects to evidence, how it changes over time, and how it supports other layers such as reputation, governance context, knowledge inheritance, and AI-assisted retrieval.
 
-Further work should refine this conceptual model into more precise schemas, validation rules, privacy controls, and review workflows before any implementation is considered.
+Further work should refine this conceptual model into formal schemas, validation rules, privacy controls, indexing strategies, and review workflows before any implementation is considered.
