@@ -220,6 +220,7 @@ Knowledge Inheritance should support human contributors. It should help people l
 | Memory Lifecycle | Determines whether inherited knowledge is current, disputed, deprecated, or archived |
 | Evidence Quality Framework | Helps future contributors judge how reliable inherited knowledge is |
 | Attestation Model | Supports review of whether inherited knowledge is accurate and useful |
+| [Attestation Authority Model](./Attestation_Authority_Model.md) | Defines reviewer authority and accountability for attestations that may affect inheritance context |
 | Governance Context | Preserves decision reasoning that can be inherited by later governance processes |
 | AI Mentor Safety Model | Defines how inherited knowledge can be retrieved without losing uncertainty or source boundaries |
 | Chronicle Archive | Preserves historical records that may later become inherited knowledge |
