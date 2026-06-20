@@ -6,6 +6,8 @@ The Attestation Model defines how contribution claims may be reviewed, contextua
 
 An attestation is not simply a like, badge, or approval signal. In this research context, an attestation is a structured statement that a contribution claim has been examined under defined criteria and assigned an evidence-aware status.
 
+Reviewer authority, scope, and accountability are further described in the [Attestation Authority Model](./Attestation_Authority_Model.md).
+
 ## Purpose
 
 The purpose of an attestation model is to prevent the Protocol Memory Layer from becoming a collection of unverified claims. Without review, memory systems can become vulnerable to spam, duplication, low-effort activity, reputation farming, and misleading historical records.
