@@ -52,6 +52,7 @@ The Protocol Memory Layer connects the main components of Chronicle / Legacy Pro
 |---|---|
 | Proof of Contribution | Provides structured contribution claims and evidence references |
 | Attestation Model | Defines how records are reviewed, confirmed, disputed, or revised |
+| [Attestation Authority Model](./Attestation_Authority_Model.md) | Defines reviewer authority, scope, and accountability within attestation processes |
 | Contributor Reputation | Interprets verified memory records in context-specific ways |
 | Chronicle Archive | Preserves historical records and long-term ecosystem documentation |
 | Knowledge Inheritance | Converts memory records into educational and operational continuity |
