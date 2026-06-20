@@ -8,11 +8,11 @@ The goal is not to create bureaucracy. The goal is to preserve decision context 
 
 Decision records should remain factual, source-linked, and open to later review.
 
----
+## Template Format
 
-# Decision Record: [Short Decision Title]
+### Decision Record: [Short Decision Title]
 
-## 1. Metadata
+### 1. Metadata
 
 | Field | Entry |
 |---|---|
@@ -25,7 +25,7 @@ Decision records should remain factual, source-linked, and open to later review.
 | Reviewers | [Maintainers, governance participants, domain reviewers, or community reviewers] |
 | Related Documents | [Links to related proposals, issues, discussions, research notes, or records] |
 
-## 2. Problem Statement
+### 2. Problem Statement
 
 Describe the problem, decision point, or governance question being addressed.
 
@@ -37,7 +37,7 @@ A good problem statement should explain:
 - what uncertainty existed at the time;
 - what would likely happen if no decision were made.
 
-## 3. Context and Background
+### 3. Context and Background
 
 Provide historical and technical context.
 
@@ -52,7 +52,7 @@ Include relevant information such as:
 - implementation dependencies;
 - known limitations.
 
-## 4. Options Considered
+### 4. Options Considered
 
 List the main alternatives that were discussed.
 
@@ -64,7 +64,7 @@ List the main alternatives that were discussed.
 
 This section should avoid presenting the chosen option as obvious. It should preserve trade-offs fairly.
 
-## 5. Evidence and References
+### 5. Evidence and References
 
 List the evidence used to support the decision.
 
@@ -78,7 +78,7 @@ List the evidence used to support the decision.
 
 Evidence quality should be stated clearly. Weak, incomplete, or disputed evidence should not be hidden.
 
-## 6. Contributor Input
+### 6. Contributor Input
 
 Record meaningful contributor participation without overstating influence.
 
@@ -88,7 +88,7 @@ Record meaningful contributor participation without overstating influence.
 
 Contributor input may include research, review, documentation, translation, operator feedback, issue analysis, governance discussion, or educational work.
 
-## 7. Decision Outcome
+### 7. Decision Outcome
 
 State the final decision clearly.
 
@@ -102,7 +102,7 @@ Include:
 - implementation assumptions;
 - conditions that may trigger later review.
 
-## 8. Governance Result
+### 8. Governance Result
 
 If the decision involved formal or informal governance, record the result.
 
@@ -116,7 +116,7 @@ If the decision involved formal or informal governance, record the result.
 
 If no formal vote occurred, state that clearly.
 
-## 9. Risks and Trade-Offs
+### 9. Risks and Trade-Offs
 
 Document known risks and trade-offs.
 
@@ -128,7 +128,7 @@ Document known risks and trade-offs.
 
 This section should preserve uncertainty rather than remove it.
 
-## 10. Disputed Points
+### 10. Disputed Points
 
 Record disagreements or unresolved interpretations.
 
@@ -138,7 +138,7 @@ Record disagreements or unresolved interpretations.
 
 Decision records should not erase disagreement. They should make disagreement understandable.
 
-## 11. Implementation or Follow-Up Plan
+### 11. Implementation or Follow-Up Plan
 
 If implementation is required, describe the expected next steps.
 
@@ -148,7 +148,7 @@ If implementation is required, describe the expected next steps.
 
 If the record is conceptual and does not require implementation, state that clearly.
 
-## 12. Retrospective Review
+### 12. Retrospective Review
 
 This section may be completed later.
 
@@ -158,7 +158,7 @@ This section may be completed later.
 
 Retrospective review helps prevent governance memory from becoming static or misleading.
 
-## 13. Revision History
+### 13. Revision History
 
 | Version | Date | Change | Contributor |
 |---|---|---|---|
