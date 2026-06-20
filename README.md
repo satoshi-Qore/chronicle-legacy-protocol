@@ -63,13 +63,30 @@ This repository is organized as a layered research project. New readers can use 
 | 5 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
 | 6 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
 | 7 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
-| 8 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 9 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 10 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 11 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 12 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 8 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
+| 9 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 10 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 11 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 12 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 13 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
+
+## Dependency Flow
+
+```text
+Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputation -> Knowledge Inheritance -> AI Mentor
+```
+
+| Dependency | Primary Document |
+|---|---|
+| Contribution | [Proof of Contribution](./docs/01-proof-of-contribution.md) |
+| Attestation | [Attestation Model](./docs/Attestation_Model.md) |
+| Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
+| Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
+| Reputation | [Contributor Reputation](./docs/02-contributor-reputation.md) |
+| Knowledge Inheritance | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) |
+| AI Mentor | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) |
 
 ## Research Roadmap
 
@@ -93,6 +110,7 @@ The map separates conceptual foundation, evidence and verification, archival mem
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
+| Attestation Authority | Drafted | Align reviewer authority with attestation, reputation, and inheritance models |
 | Governance Context | Drafted | Add more governance memory scenarios |
 | Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
 | Related Work | Drafted | Expand comparison with additional academic and open-source systems |
@@ -124,6 +142,7 @@ chronicle-legacy-protocol/
 |   |-- Knowledge_Inheritance_Framework.md
 |   |-- AI_Mentor_Safety_Model.md
 |   |-- Attestation_Model.md
+|   |-- Attestation_Authority_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
 |   |-- Related_Work.md
@@ -160,6 +179,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md)
 - [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
+- [Attestation Authority Model](./docs/Attestation_Authority_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
 - [Related Work](./docs/Related_Work.md)
