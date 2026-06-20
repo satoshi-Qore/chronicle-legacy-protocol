@@ -26,7 +26,7 @@ The protocol is not designed as a rewards farming system. It does not treat ever
 
 Chronicle / Legacy Protocol is the broader research framework. It studies the full memory layer: contribution records, attestation context, reputation safeguards, governance history, knowledge preservation, decision records, AI-assisted retrieval, and long-term ecosystem legacy.
 
-[QoreChain Proof of Contribution](https://github.com/satoshi-Qore/qorechain-proof-of-contribution) is a focused sub-proposal within this broader research direction. It concentrates on one component of the memory layer: how contribution claims may be submitted, verified, attested, disputed, and preserved as evidence-aware records.
+Chronicle originated from earlier research into Proof of Contribution systems. That earlier work explored how contribution claims may be submitted, verified, attested, disputed, and preserved as evidence-aware records.
 
 This separation keeps the research structure clear. Chronicle defines the larger protocol memory problem. Proof of Contribution examines a specific verification component that could later inform Chronicle's contribution and attestation layers.
 
@@ -211,13 +211,7 @@ This repository intentionally avoids smart contract code, implementation code, t
 
 ## Relationship to Proof of Contribution
 
-Proof of Contribution can be understood as one component within Chronicle / Legacy Protocol. It focuses on verified contribution records and the verification process around those records. Chronicle / Legacy Protocol extends this narrower contribution-verification question toward ecosystem memory, knowledge inheritance, AI-assisted mentorship, governance context, and long-term legacy preservation.
-
-The separate [QoreChain Proof of Contribution](https://github.com/satoshi-Qore/qorechain-proof-of-contribution) repository is maintained as a focused research sub-proposal. Its verification framework, attestation model, and reputation safeguards may later inform Chronicle's contribution and attestation layers.
-
-## Related Research
-
-- [QoreChain Proof of Contribution](https://github.com/satoshi-Qore/qorechain-proof-of-contribution) - focused research on contribution verification, evidence quality, attestation models, and contextual reputation safeguards within the broader Chronicle / Legacy Protocol vision.
+Proof of Contribution can be understood as historical context for Chronicle / Legacy Protocol. It focuses on verified contribution records and the verification process around those records. Chronicle / Legacy Protocol extends this narrower contribution-verification question toward ecosystem memory, knowledge inheritance, AI-assisted mentorship, governance context, and long-term legacy preservation.
 
 ## Author
 
