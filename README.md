@@ -64,11 +64,12 @@ This repository is organized as a layered research project. New readers can use 
 | 6 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
 | 7 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
 | 8 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
-| 9 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 10 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 11 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 12 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 13 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 9 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
+| 10 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 11 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 12 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 13 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 14 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
@@ -84,7 +85,7 @@ Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputat
 | Attestation | [Attestation Model](./docs/Attestation_Model.md) |
 | Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
 | Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
-| Reputation | [Contributor Reputation](./docs/02-contributor-reputation.md) |
+| Reputation | [Reputation Graph](./docs/Reputation_Graph.md) |
 | Knowledge Inheritance | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) |
 | AI Mentor | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) |
 
@@ -116,7 +117,7 @@ Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputat
 | Related Work | Drafted | Expand comparison with additional academic and open-source systems |
 | Threat Model | Drafted | Refine mitigations into future protocol requirements |
 | Concept FAQ | Drafted | Keep updated as architecture terms evolve |
-| Contributor Reputation | Drafted | Improve contextual reputation safeguards |
+| Contributor Reputation | Reputation graph drafted | Refine graph relationships, privacy boundaries, and dispute-sensitive interpretation |
 | Knowledge Inheritance | Refined architecture model | Add concrete lineage examples and inheritance review criteria |
 | AI Mentor Layer | Safety model drafted | Add retrieval policy examples and source-citation response patterns |
 | Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
@@ -140,6 +141,7 @@ chronicle-legacy-protocol/
 |   |-- Chronicle_Archive_Model.md
 |   |-- Evidence_Quality_Framework.md
 |   |-- Knowledge_Inheritance_Framework.md
+|   |-- Reputation_Graph.md
 |   |-- AI_Mentor_Safety_Model.md
 |   |-- Attestation_Model.md
 |   |-- Attestation_Authority_Model.md
@@ -177,6 +179,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md)
 - [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md)
 - [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md)
+- [Reputation Graph](./docs/Reputation_Graph.md)
 - [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
 - [Attestation Authority Model](./docs/Attestation_Authority_Model.md)
