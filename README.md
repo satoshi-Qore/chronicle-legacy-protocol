@@ -89,20 +89,21 @@ This repository is organized as a layered research project. New readers can use 
 | 8 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
 | 9 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
 | 10 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
-| 11 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
-| 12 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
-| 13 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 14 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 15 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 16 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 17 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 11 | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) | Defines the structured review workflow, decision outcomes, attestation record fields, and lifecycle transition mapping |
+| 12 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
+| 13 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
+| 14 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 15 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 16 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 17 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 18 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
 ## Dependency Flow
 
 ```text
-Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authority -> Archive / Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
+Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Protocol -> Attestation Authority -> Archive / Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
 ```
 
 | Dependency | Primary Document |
@@ -112,6 +113,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 | Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
 | Memory Object Schema | [Memory Object Schema](./docs/Memory_Object_Schema.md) |
 | Attestation | [Attestation Model](./docs/Attestation_Model.md) |
+| Attestation Protocol | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) |
 | Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
 | Archive | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) |
 | Reputation | [Reputation Graph](./docs/Reputation_Graph.md) |
@@ -124,7 +126,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 | Phase | Focus | Expected Output | Status |
 |---|---|---|---|
 | Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, memory object model, memory object schema, lifecycle model, lifecycle state machine, archive model, evidence quality framework, and protocol memory definition | In progress |
-| Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
+| Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, attestation protocol specification, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
 | Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | Planned |
@@ -144,6 +146,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
+| Attestation Protocol | Drafted as specification candidate | Refine quorum rules, dispute thresholds, reviewer independence, and validation test cases |
 | Attestation Authority | Drafted | Align reviewer authority with attestation, reputation, and inheritance models |
 | Governance Context | Drafted | Add more governance memory scenarios |
 | Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
@@ -180,6 +183,7 @@ chronicle-legacy-protocol/
 |   |-- Reputation_Graph.md
 |   |-- AI_Mentor_Safety_Model.md
 |   |-- Attestation_Model.md
+|   |-- Attestation_Protocol_Specification.md
 |   |-- Attestation_Authority_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
@@ -221,6 +225,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Reputation Graph](./docs/Reputation_Graph.md)
 - [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
+- [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md)
 - [Attestation Authority Model](./docs/Attestation_Authority_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
