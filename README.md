@@ -221,7 +221,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Contribution Guidelines](./CONTRIBUTING.md)
 - [Chronicle Manifesto](./manifesto/chronicle-manifesto.md)
 - [Use Cases](./research/use-cases.md)
-- [Ecosystem Scenarios](./research/ecos-scenarios.md)
+- [Ecosystem Scenarios](./research/ecosystem-scenarios.md)
 
 ## Early Concept Notes
 
