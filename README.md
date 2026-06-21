@@ -83,18 +83,19 @@ This repository is organized as a layered research project. New readers can use 
 | 2 | [Architecture Diagram](./docs/Architecture_Diagram.md) | Provides a high-level view of the Chronicle / Legacy Protocol research layers |
 | 3 | [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md) | Defines the central problem space and the purpose of protocol memory |
 | 4 | [Memory Object Model](./docs/Memory_Object_Model.md) | Defines the conceptual unit of record used to preserve contribution and knowledge context |
-| 5 | [Memory Lifecycle](./docs/Memory_Lifecycle.md) | Explains how records move through draft, review, verification, dispute, archival, and deprecation states |
-| 6 | [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md) | Defines formal lifecycle states, allowed transitions, invalid transitions, review gates, and state effects |
-| 7 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
-| 8 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
-| 9 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
-| 10 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
-| 11 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
-| 12 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 13 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 14 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 15 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 16 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 5 | [Memory Object Schema](./docs/Memory_Object_Schema.md) | Defines canonical fields, requirement levels, object types, relationship schema, validation rules, and example object shapes |
+| 6 | [Memory Lifecycle](./docs/Memory_Lifecycle.md) | Explains how records move through draft, review, verification, dispute, archival, and deprecation states |
+| 7 | [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md) | Defines formal lifecycle states, allowed transitions, invalid transitions, review gates, and state effects |
+| 8 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
+| 9 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
+| 10 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
+| 11 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
+| 12 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
+| 13 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 14 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 15 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 16 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 17 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
@@ -109,6 +110,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 | Contribution | [Proof of Contribution](./docs/01-proof-of-contribution.md) |
 | Evidence | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) |
 | Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
+| Memory Object Schema | [Memory Object Schema](./docs/Memory_Object_Schema.md) |
 | Attestation | [Attestation Model](./docs/Attestation_Model.md) |
 | Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
 | Archive | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) |
@@ -121,7 +123,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 
 | Phase | Focus | Expected Output | Status |
 |---|---|---|---|
-| Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, memory object model, lifecycle model, lifecycle state machine, archive model, evidence quality framework, and protocol memory definition | In progress |
+| Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, memory object model, memory object schema, lifecycle model, lifecycle state machine, archive model, evidence quality framework, and protocol memory definition | In progress |
 | Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
@@ -135,6 +137,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authorit
 | Canonical Architecture | Drafted as source of truth | Keep aligned with all future architecture documents |
 | Protocol Memory Layer | Drafted | Align conceptual layer with memory object, lifecycle, archive, and evidence quality models |
 | Memory Object Model | Refined foundational model | Formalize object identity, validation rules, and future schema constraints |
+| Memory Object Schema | Drafted as specification candidate | Refine type-specific schemas, validation test cases, and serialization format |
 | Memory Lifecycle | Drafted | Refine transition rules, review gates, and archival criteria |
 | Lifecycle State Machine | Drafted as specification candidate | Refine transition permissions, reviewer thresholds, and implementation test cases |
 | Chronicle Archive | Archive model drafted | Refine preservation modes, redaction rules, archival integrity requirements, and link-rot handling |
@@ -168,6 +171,7 @@ chronicle-legacy-protocol/
 |   |-- Architecture_Diagram.md
 |   |-- Protocol_Memory_Layer.md
 |   |-- Memory_Object_Model.md
+|   |-- Memory_Object_Schema.md
 |   |-- Memory_Lifecycle.md
 |   |-- Lifecycle_State_Machine.md
 |   |-- Chronicle_Archive_Model.md
@@ -208,6 +212,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Architecture Diagram](./docs/Architecture_Diagram.md)
 - [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md)
 - [Memory Object Model](./docs/Memory_Object_Model.md)
+- [Memory Object Schema](./docs/Memory_Object_Schema.md)
 - [Memory Lifecycle](./docs/Memory_Lifecycle.md)
 - [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md)
 - [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md)
