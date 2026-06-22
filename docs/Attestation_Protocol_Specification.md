@@ -9,41 +9,51 @@
 
 The Attestation Protocol Specification defines the review workflow that connects Memory Objects, evidence, reviewers, attestation authority, lifecycle states, and archival outcomes.
 
-This document translates the broader [Attestation Model](./Attestation_Model.md) into a protocol-oriented workflow. It does not define production implementation code, final governance rules, token incentives, or reward mechanics. Its purpose is to describe how a structured contribution memory record can move through review in a way that is evidence-aware, accountable, dispute-capable, and suitable for long-term protocol memory.
+This document translates the broader [Attestation Model](./Attestation_Model.md) into a protocol-oriented workflow. It does not define production implementation code, final governance rules, token incentives, or reward mechanics. Its purpose is to describe how a structured contribution memory record can move through review in a way that is evidence-aware, privacy-aware, accountable, dispute-capable, and suitable for long-term protocol memory.
 
 ## 2. Relationship to the Canonical Architecture
 
 The attestation protocol sits inside the canonical Chronicle flow:
 
 ```text
-Contribution
+Identity / Pseudonymity
+-> Contribution Submission
 -> Evidence
 -> Memory Object
 -> Evidence Quality
+-> Privacy / Disclosure
 -> Attestation
 -> Attestation Authority
 -> Lifecycle State
 -> Protocol Memory Layer
+-> Chronicle Archive
+-> Reputation Graph
+-> Knowledge Inheritance
+-> AI Mentor
+-> Legacy
 ```
 
-The protocol operates on [Memory Objects](./Memory_Object_Model.md), not directly on raw social activity or informal claims. A Memory Object may reference contribution evidence, contextual metadata, related records, and lifecycle state. The attestation protocol determines how reviewers evaluate that object and what state transition may follow.
+The protocol operates on [Memory Objects](./Memory_Object_Model.md), not directly on raw social activity, informal claims, or standalone contributions. A Memory Object may reference contribution submission context, evidence, contextual metadata, disclosure boundaries, related records, and lifecycle state. The attestation protocol determines how reviewers evaluate that object and what state transition may follow.
 
 Related documents define adjacent boundaries:
 
 | Document | Relationship |
 |---|---|
+| [Identity and Pseudonymity Model](./Identity_and_Pseudonymity_Model.md) | Defines contributor, reviewer, and pseudonymous actor continuity |
+| [Contribution Submission Protocol](./Contribution_Submission_Protocol.md) | Defines how a contribution enters Chronicle before Memory Object formation |
 | [Memory Object Schema](./Memory_Object_Schema.md) | Defines the data structure that attestation records reference |
 | [Evidence Quality Framework](./Evidence_Quality_Framework.md) | Defines how evidence strength and uncertainty should be interpreted |
+| [Privacy and Disclosure Framework](./Privacy_and_Disclosure_Framework.md) | Defines disclosure, redaction, consent, and restricted evidence boundaries |
 | [Attestation Model](./Attestation_Model.md) | Defines the conceptual role of attestation |
 | [Attestation Authority Model](./Attestation_Authority_Model.md) | Defines who may attest, under what scope, and with what accountability |
 | [Lifecycle State Machine](./Lifecycle_State_Machine.md) | Defines valid state transitions resulting from review outcomes |
-| [Reputation Graph](./Reputation_Graph.md) | Interprets accepted, disputed, or verified records as contextual reputation signals |
+| [Reputation Graph](./Reputation_Graph.md) | Interprets accepted, disputed, or verified records as contextual reputation relationships |
 
 ## 3. Canonical Definition
 
 An attestation is a structured, scoped, evidence-aware review statement about a Memory Object.
 
-It is not a like, badge, endorsement, reward claim, social signal, or universal truth claim. It is a review record that states what was examined, by whom, under which scope, with what evidence, and with what limitations.
+It is not a like, badge, endorsement, reward claim, social signal, or universal truth claim. It is a review record that states what was examined, by whom, under which scope, with what evidence, under which disclosure limits, and with what limitations.
 
 ## 4. Design Principles
 
@@ -65,6 +75,7 @@ An attestation workflow begins only when a Memory Object has enough structure to
 | Input | Description | Required |
 |---|---|---|
 | `object_id` | Identifier of the target Memory Object | Yes |
+| `submission_ref` | Reference to the contribution submission or intake context | Yes, unless unavailable with explanation |
 | `object_type` | Type of record being reviewed, such as documentation, governance, research, or infrastructure | Yes |
 | `evidence_refs` | Links or references supporting the Memory Object | Yes |
 | `contributor_refs` | Contributor or author references associated with the object | Yes |
@@ -72,6 +83,7 @@ An attestation workflow begins only when a Memory Object has enough structure to
 | `context_tags` | Domain, ecosystem, language, or topic tags | Recommended |
 | `related_objects` | Linked Memory Objects that provide context or lineage | Recommended |
 | `privacy_level` | Disclosure status of evidence or reviewer notes | Recommended |
+| `disclosure_notes` | Explanation of redacted, restricted, or consent-dependent material | Recommended when relevant |
 | `evidence_quality` | Existing evidence quality assessment, if available | Optional |
 
 If the required inputs are absent, the object should remain in `draft`, `submitted`, or `needs_revision` rather than advancing to formal attestation.
@@ -87,7 +99,7 @@ If the required inputs are absent, the object should remain in `draft`, `submitt
 | Domain Reviewer | Reviews within a specific area such as documentation, infrastructure, governance, research, or localization |
 | Maintainer | Reviews repository, protocol, or project-level context when relevant |
 | Governance Reviewer | Reviews governance-related records and decision context |
-| Disputer | Challenges an existing attestation or Memory Object state |
+| Disputer | Challenges an existing attestation, disclosure decision, or Memory Object state |
 | Archivist | Helps preserve accepted or verified records in long-term memory structures |
 | Automated Checker | Provides supporting checks only, such as link availability or format validation |
 | AI Mentor | May retrieve or explain attested records, but should not issue attestations |
@@ -115,48 +127,53 @@ A single Memory Object may receive multiple attestations with different scopes.
 
 ## 8. Attestation Workflow
 
-### 8.1 Submission Intake
+### 8.1 Submission and Object Intake
 
-A Memory Object enters review from `submitted`, `observed`, or `needs_revision`. The reviewer first checks whether the object contains enough required fields and evidence references to be reviewed.
+A Memory Object enters review from `submitted`, `observed`, or `needs_revision`. The reviewer first checks whether the object contains enough required fields, submission context, and evidence references to be reviewed.
 
 ### 8.2 Evidence Observation
 
-The reviewer examines the cited evidence and records whether it is available, relevant, stale, incomplete, inaccessible, or contradictory.
+The reviewer examines the cited evidence and records whether it is available, relevant, stale, incomplete, inaccessible, private, redacted, or contradictory.
 
-### 8.3 Review Assignment
+### 8.3 Privacy and Disclosure Check
+
+Before review conclusions are recorded, the reviewer checks whether the Memory Object, evidence, or reviewer notes include sensitive, restricted, personal, operational, or consent-dependent material.
+
+### 8.4 Review Assignment
 
 A reviewer or review group is selected based on domain relevance, independence, and authority scope. The selection process should avoid obvious conflicts of interest where possible.
 
-### 8.4 Scope Declaration
+### 8.5 Scope Declaration
 
 The reviewer declares the scope of review before issuing a decision. A documentation reviewer, for example, may attest to educational value without attesting to protocol correctness.
 
-### 8.5 Review Assessment
+### 8.6 Review Assessment
 
-The reviewer evaluates the Memory Object against evidence quality, authorship, usefulness, originality, durability, privacy, and scope accuracy.
+The reviewer evaluates the Memory Object against evidence quality, authorship, usefulness, originality, durability, privacy, disclosure boundaries, and scope accuracy.
 
-### 8.6 Decision Output
+### 8.7 Decision Output
 
 The reviewer issues a structured decision. The decision may accept, verify, reject, dispute, or request revision of the Memory Object.
 
-### 8.7 Lifecycle Transition
+### 8.8 Lifecycle Transition
 
 The decision maps to a valid lifecycle transition defined in the [Lifecycle State Machine](./Lifecycle_State_Machine.md).
 
-### 8.8 Record Preservation
+### 8.9 Record Preservation
 
-The attestation record is linked back to the Memory Object and preserved as part of the Protocol Memory Layer.
+The attestation record is linked back to the Memory Object and preserved as part of the Protocol Memory Layer. Later archive and reputation interpretation should preserve the attestation scope and lifecycle state.
 
 ## 9. Decision Outcomes
 
 | Decision | Meaning | Typical Lifecycle Effect |
 |---|---|---|
-| `accept` | The record is sufficiently supported for inclusion as accepted memory | `under_review -> accepted` |
+| `accept_for_review` | The object is reviewable and can enter formal review | `observed -> reviewed` |
+| `accept` | The record is sufficiently supported for inclusion as accepted memory | `reviewed -> accepted` |
 | `verify` | The record has stronger review confidence and evidence support | `accepted -> verified` |
-| `partial_accept` | Some scopes are accepted while others remain limited or unresolved | `under_review -> accepted` or `needs_revision` |
-| `request_revision` | The record may be valid but requires clarification, evidence, or correction | `under_review -> needs_revision` |
+| `partial_accept` | Some scopes are accepted while others remain limited or unresolved | `reviewed -> accepted` or `needs_revision` |
+| `request_revision` | The record may be valid but requires clarification, evidence, or correction | `reviewed -> needs_revision` |
 | `dispute` | A reviewer or participant challenges the record or prior attestation | `accepted -> disputed` or `verified -> disputed` |
-| `reject` | The record lacks sufficient evidence, relevance, or integrity | `under_review -> rejected` |
+| `reject` | The record lacks sufficient evidence, relevance, or integrity | `reviewed -> rejected` |
 | `archive_without_acceptance` | The record is preserved for history but should not be treated as accepted memory | `submitted -> archived` or `rejected -> archived` |
 | `deprecate` | The record was useful historically but is no longer current or primary | `verified -> deprecated` or `accepted -> deprecated` |
 
@@ -166,13 +183,15 @@ A reviewer should consider the following criteria before issuing an attestation:
 
 | Criterion | Review Question |
 |---|---|
-| Evidence quality | Is the evidence accessible, relevant, and sufficient for the claimed scope? |
+| Evidence quality | Is the evidence accessible, relevant, durable, and sufficient for the claimed scope? |
 | Authorship | Does the record accurately represent the contributor relationship? |
+| Submission context | Does the Memory Object reasonably follow from the contribution submission or intake record? |
 | Scope accuracy | Does the Memory Object avoid overstating what the evidence proves? |
 | Usefulness | Does the object preserve knowledge, context, contribution, or decision history? |
 | Originality | Does the object represent meaningful work rather than duplicate or low-effort activity? |
 | Durability | Is the record likely to remain useful beyond short-term activity? |
 | Privacy safety | Does the object avoid unnecessary exposure of personal or sensitive information? |
+| Disclosure clarity | Are redactions, restrictions, or consent-sensitive elements clearly marked? |
 | Lineage relevance | Does the object connect properly to prior or future Memory Objects? |
 | Abuse risk | Is there evidence of spam, collusion, manipulation, or reputation inflation? |
 
@@ -194,6 +213,7 @@ An attestation record should be structured enough to support auditability and fu
 | `limitations` | Known uncertainty, scope limits, or unresolved concerns |
 | `timestamp` | Time of attestation |
 | `privacy_notes` | Notes about redacted or private evidence, if applicable |
+| `disclosure_notes` | Notes about visibility, restricted material, or consent boundaries, if applicable |
 | `dispute_window` | Optional period or condition under which dispute is expected |
 | `related_transition` | Lifecycle transition produced by the attestation |
 
@@ -221,6 +241,7 @@ Minimum checks:
 - The reviewer declares the review scope.
 - The reviewer does not have an obvious conflict of interest.
 - The reviewer provides a rationale tied to evidence.
+- The reviewer considers privacy and disclosure boundaries.
 - The reviewer does not claim authority beyond the reviewed scope.
 - The attestation can be disputed or revisited if later evidence changes the context.
 
@@ -263,6 +284,7 @@ Privacy considerations:
 - Reviewers should distinguish between unavailable evidence and intentionally private evidence.
 - Sensitive contributor information should not be turned into permanent public metadata without consent.
 - Privacy limitations should be preserved as part of the attestation record.
+- Disclosure limits should affect archive, reputation, inheritance, and AI mentor interpretation.
 
 ## 16. Anti-Abuse Safeguards
 
@@ -286,12 +308,12 @@ Attestation decisions should map to lifecycle states in a predictable way.
 
 | Current State | Decision | New State |
 |---|---|---|
-| `submitted` | `accept_for_review` | `under_review` |
-| `observed` | `accept_for_review` | `under_review` |
-| `under_review` | `accept` | `accepted` |
-| `under_review` | `verify` | `verified` |
+| `submitted` | `observe_evidence` | `observed` |
+| `observed` | `accept_for_review` | `reviewed` |
+| `reviewed` | `accept` | `accepted` |
+| `reviewed` | `verify` | `verified` |
 | `accepted` | `verify` | `verified` |
-| `under_review` | `request_revision` | `needs_revision` |
+| `reviewed` | `request_revision` | `needs_revision` |
 | `needs_revision` | `resubmit` | `submitted` |
 | `accepted` | `dispute` | `disputed` |
 | `verified` | `dispute` | `disputed` |
@@ -337,6 +359,6 @@ Future versions should investigate:
 
 ## 20. Summary
 
-The Attestation Protocol Specification defines how Memory Objects move from claim to reviewed protocol memory. It connects evidence, reviewers, scoped decisions, authority checks, lifecycle transitions, disputes, privacy, and archival continuity.
+The Attestation Protocol Specification defines how Memory Objects move from claim to reviewed protocol memory. It connects submission context, evidence, reviewers, scoped decisions, authority checks, privacy and disclosure boundaries, lifecycle transitions, disputes, and archival continuity.
 
 This document strengthens Chronicle by making attestation a structured protocol process rather than an informal approval concept. It remains a draft specification candidate and should be refined through future examples, test cases, threat analysis, and reviewer-model research.
