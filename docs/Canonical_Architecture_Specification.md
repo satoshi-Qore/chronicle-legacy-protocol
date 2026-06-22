@@ -548,6 +548,7 @@ This document is the canonical architecture reference. Other documents should be
 | [Knowledge Inheritance Framework](./Knowledge_Inheritance_Framework.md) | Defines knowledge lineage and continuity |
 | [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md) | Defines safe AI-assisted retrieval boundaries |
 | [Governance Context](./Governance_Context.md) | Defines governance memory and decision reasoning |
+| [Chronicle Self-Governance](./Chronicle_Self_Governance.md) | Defines how Chronicle evolves, how its rules may change, and how governance decisions become part of protocol memory |
 | [Threat Model](./Threat_Model.md) | Defines abuse, manipulation, privacy, and memory-integrity risks |
 | [Related Work](./Related_Work.md) | Places Chronicle in relation to existing systems |
 
