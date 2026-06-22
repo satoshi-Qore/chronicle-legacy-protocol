@@ -1,24 +1,27 @@
 # Attestation Authority Model
 
 **Document:** `docs/Attestation_Authority_Model.md`  
-**Status:** Draft — Protocol Reference  
+**Status:** Draft — Research Reference  
 **Scope:** Chronicle Protocol Memory Layer — Attestation Subsystem
 
 ---
 
 ## 1. Overview
 
-The Chronicle Protocol Memory Layer treats knowledge as a living structure: Memory Objects are proposed, refined, linked, and inherited over time. For this structure to remain reliable, not all voices can carry equal weight in validating knowledge claims. The Attestation Authority Model defines how the right to issue, endorse, or contest attestations is earned, measured, maintained, and — when necessary — curtailed.
+The Chronicle Protocol Memory Layer treats knowledge as a living structure: Memory Objects are proposed, reviewed, disputed, revised, linked, archived, and inherited over time. For this structure to remain reliable, attestations must be issued by reviewers whose scope, accountability, and limits are visible.
 
-An **attestation** is a formal act by which a Reviewer asserts that a Memory Object meets defined quality, accuracy, or contextual standards. The authority to issue such assertions is not granted universally; it is earned through demonstrated engagement, calibrated over time, and subject to review.
+An **attestation** is a structured review statement about a Memory Object, its evidence, or its claimed scope. The authority to issue such a statement is not universal. It is contextual, domain-scoped, accountable, and open to dispute.
+
+This document defines a research-stage model for attestation authority. It does not define production formulas, numeric reviewer scores, final governance rules, token mechanics, or deployed permissions.
 
 This document describes:
 
-- the structural tiers of attestation authority;
-- the conditions under which authority is acquired and reduced;
-- the metrics used to assess authority quality;
-- the reputation mechanisms that tie attestation behaviour to long-term standing;
-- the processes for dispute, appeal, and enforcement.
+- the purpose of attestation authority;
+- reviewer scope and accountability;
+- conceptual authority levels;
+- how reviewer authority may be earned, limited, reduced, or challenged;
+- abuse risks such as collusion, reviewer capture, and scope inflation;
+- how attestation authority relates to the Reputation Graph, lifecycle states, and knowledge inheritance.
 
 ---
 
@@ -26,284 +29,256 @@ This document describes:
 
 | Term | Definition |
 |---|---|
-| **Memory Object** | A discrete, versioned unit of knowledge stored in the Protocol Memory Layer. |
-| **Attestation** | A signed, structured assertion by a Reviewer about the validity, accuracy, or quality of a Memory Object or a specific version thereof. |
-| **Reviewer** | A protocol participant with at least a minimal level of earned attestation authority. |
-| **Attestation Authority** | The scope and weight of attestations a Reviewer is permitted to issue. |
-| **Authority Score** | A computed numeric representation of a Reviewer's current attestation authority level. |
-| **Reputation Layer** | The system-wide record of each contributor's cumulative behavioural history, used across multiple protocol subsystems. |
-| **Knowledge Inheritance** | The mechanism by which derived or child Memory Objects carry provenance references to their source objects. |
-| **Dispute Window** | The time period during which a contested attestation may be formally challenged. |
+| **Memory Object** | A structured and verifiable memory record for a contribution, decision, knowledge artifact, governance event, or mentorship interaction. |
+| **Attestation** | A structured, scoped, evidence-aware review statement about a Memory Object. |
+| **Reviewer** | An actor who reviews a Memory Object, evidence package, lifecycle state, or attestation claim within a declared scope. |
+| **Attestor** | A reviewer or review process that issues a structured attestation. |
+| **Attestation Authority** | The contextual scope and accountability boundaries under which a reviewer may issue attestations. |
+| **Authority Scope** | The domain, contribution type, or review category where a reviewer is considered relevant. |
+| **Reputation Graph** | The contextual relationship layer that records contribution, review, dispute, and attestation history without reducing contributors to a universal score. |
+| **Knowledge Inheritance** | The process by which Memory Objects are referenced, extended, superseded, and reused across contributor generations. |
+| **Dispute Window** | A conceptual review period or condition under which a contested attestation may be challenged. |
 
 ---
 
 ## 3. Principles
 
-**3.1 Authority Is Earned, Not Assigned**
+### 3.1 Authority Is Earned, Not Assumed
 
-No participant begins with attestation authority. Authority accrues through observable behaviour: contributions, prior attestations that have aged well, domain engagement, and peer review. The protocol does not grant authority by role, title, or identity claim.
+Reviewer authority should emerge from visible contribution history, domain familiarity, review quality, and accountable participation. A title, account age, social visibility, or identity claim should not automatically create review authority.
 
-**3.2 Authority Is Domain-Scoped**
+### 3.2 Authority Is Domain-Scoped
 
-Authority earned in one knowledge domain does not automatically transfer to another. Cross-domain authority may be inherited in part when domains overlap, but the transfer coefficient is bounded and explicit.
+Authority in one area does not automatically transfer to another. A documentation reviewer may be relevant for onboarding material without being qualified to review infrastructure security, governance interpretation, or protocol research.
 
-**3.3 Authority Is Probabilistic, Not Absolute**
+### 3.3 Authority Is Contextual, Not Absolute
 
-No attestation carries unconditional weight. Every attestation is treated as a signal with an associated confidence value derived from the issuing Reviewer's Authority Score, domain match, historical calibration, and recency.
+An attestation is a scoped statement, not a universal truth claim. A reviewer may confirm that a Memory Object has educational value while leaving technical completeness, governance relevance, or currentness outside the reviewed scope.
 
-**3.4 Authority Is Accountable**
+### 3.4 Authority Is Accountable
 
-Every attestation creates a persistent, attributable record. A Reviewer's future authority depends in part on the downstream quality of their past attestations.
+Every attestation should remain traceable to a reviewer identity, reviewer role, declared scope, rationale, and evidence reviewed. Future disputes, corrections, or revisions should be able to reference the original attestation.
 
----
+### 3.5 Authority Is Non-Scoring at This Stage
 
-## 4. Attestation Tiers
-
-### Tier 0 — Observer
-- **Permissions:** May flag Memory Objects; may submit corrections. Cannot issue attestations.
-- **Authority Score Range:** 0 – 99
-
-### Tier 1 — Associate Reviewer
-- **Eligibility:** Minimum accepted contributions; at least one valid peer attestation.
-- **Permissions:** May issue attestations in established domains. Low base weight.
-- **Authority Score Range:** 100 – 299
-
-### Tier 2 — Reviewer
-- **Eligibility:** Sustained contribution history; demonstrated calibration accuracy; no active suspension.
-- **Permissions:** Standard attestations across established and adjacent domains. May initiate disputes.
-- **Authority Score Range:** 300 – 599
-
-### Tier 3 — Senior Reviewer
-- **Eligibility:** Longitudinal track record; high calibration score; dispute panel participation.
-- **Permissions:** Elevated base weight attestations. Neutral party in Tier-1/2 dispute panels.
-- **Authority Score Range:** 600 – 849
-
-### Tier 4 — Principal Reviewer
-- **Eligibility:** Sustained Senior Reviewer standing; peer-nominated; no major integrity events.
-- **Permissions:** Maximum base weight. High-stakes dispute panels. Co-signs revocation proposals.
-- **Authority Score Range:** 850 – 1000
+This research model does not assign numeric authority scores, formula-based weights, or universal reviewer rankings. Any future weighting or tiering model would require separate specification, governance review, privacy review, and abuse analysis.
 
 ---
 
-## 5. How Attestation Authority Is Earned
+## 4. Conceptual Reviewer Levels
 
-### 5.1 Contribution Acceptance
-Accepted Memory Objects increase domain-specific authority first; a secondary fraction accrues to the global Authority Score.
+The following labels are conceptual roles, not numeric ranks or production permissions.
 
-### 5.2 Attestation Calibration Over Time
-The protocol tracks whether past attestations aged well.
+| Conceptual Level | Description | Possible Review Role |
+|---|---|---|
+| Observer | Can identify issues, flag concerns, or provide informal review context | May suggest corrections but should not issue formal attestations |
+| Associate Reviewer | Has limited domain familiarity and may participate in scoped review with oversight | May review low-risk or narrow-scope Memory Objects |
+| Domain Reviewer | Has demonstrated relevance in a specific domain such as documentation, infrastructure, governance, research, localization, or education | May issue scoped attestations within that domain |
+| Senior Reviewer | Has a stronger record of careful review, dispute participation, and domain-specific judgment | May review higher-impact Memory Objects or disputed records within scope |
+| Principal Reviewer | Has sustained domain trust and may participate in sensitive dispute or authority review processes | May help review reviewer behavior, but still remains scope-limited |
 
-```
-Calibration(r, d) = Σ [ weight(a) × outcome(a) ] / Σ weight(a)
-```
-
-Where `outcome(a)` is a value in `[-1, 1]` reflecting retrospective accuracy.
-
-### 5.3 Peer Recognition
-Attestations endorsed by higher-tier Reviewers as well-reasoned generate a peer recognition bonus.
-
-### 5.4 Dispute Participation
-Panel decisions consistent with long-run outcomes generate an authority contribution. Consistent losing positions generate a calibration penalty.
-
-### 5.5 Domain Depth
-Sustained domain engagement increases the domain-specific authority multiplier.
+These labels should not be treated as permanent hierarchy. They describe possible review roles that require future specification before any implementation.
 
 ---
 
-## 6. Authority Quality Metrics
+## 5. How Attestation Authority May Be Earned
 
-### 6.1 Volume Score
-```
-Volume Score = min( accepted_attestation_count, V_cap ) / V_cap × 100
-```
+Reviewer authority may be supported by several contextual signals.
 
-### 6.2 Calibration Score
-```
-Calibration Score = Calibration(r, d) × 300    [range: 0–300]
-```
+### 5.1 Accepted Contribution History
 
-### 6.3 Recency Score
-```
-Recency Score = 100 × e^( -λ × days_since_last_valid_attestation )
-```
+A reviewer may gain relevance in a domain by producing accepted, verified, or historically useful Memory Objects in that domain.
 
-### 6.4 Domain Match Score
-```
-Effective Weight = base_weight × domain_match_coefficient(r, B)
-```
-`domain_match_coefficient` is 1.0 for established domains, fractional for adjacent, 0.1 for unestablished.
+### 5.2 Review Quality Over Time
 
-### 6.5 Integrity Score
-Starts at maximum; reduced by bad faith findings, withdrawn attestations, and sustained dispute losses.
+Past attestations may be evaluated by whether they remained accurate, well-scoped, evidence-aware, and resilient to later disputes or corrections.
 
-```
-Authority Score = f( Volume Score, Calibration Score, Recency Score, Integrity Score )
-```
+### 5.3 Domain Familiarity
+
+A reviewer may be more relevant when they have sustained participation in a specific contribution category, repository, governance area, research topic, language community, or operational context.
+
+### 5.4 Peer and Maintainer Context
+
+Other reviewers, maintainers, or governance participants may provide context about whether a reviewer is careful, scoped, and accountable. This should remain evidence-linked rather than popularity-based.
+
+### 5.5 Dispute Participation
+
+Reviewers who participate constructively in disputes may build accountability context. Reviewers who repeatedly issue poorly scoped or overturned attestations may lose authority context.
 
 ---
 
-## 7. Reviewer Reputation and the Reputation Layer
+## 6. Authority Quality Signals
 
-### 7.1 Bidirectional Influence
-Attestation authority affects Reputation Layer standing, and Reputation Layer standing affects the trust coefficient applied to a Reviewer's attestations.
+Authority quality should be interpreted through qualitative and contextual signals rather than production-style formulas.
 
-### 7.2 Knowledge Inheritance and Reputation Propagation
-When a Memory Object is inherited into a child object, parent attestations carry forward with a decay coefficient. Parent Reviewers' records are updated when derived object quality is later assessed.
+| Signal | Meaning |
+|---|---|
+| Domain relevance | Whether the reviewer has context in the domain being reviewed |
+| Evidence discipline | Whether the reviewer ties attestations to source material and limitations |
+| Scope accuracy | Whether the reviewer avoids claiming more than the evidence supports |
+| Dispute history | Whether prior attestations were disputed, narrowed, corrected, or overturned |
+| Review rationale quality | Whether the reviewer explains what was reviewed and why |
+| Conflict awareness | Whether the reviewer declares possible conflicts or relationship limits |
+| Privacy awareness | Whether the reviewer respects disclosure and redaction constraints |
+| Lifecycle awareness | Whether the reviewer distinguishes draft, submitted, accepted, verified, disputed, deprecated, and archived records |
 
-### 7.3 Reputation Recovery
-Recovery is not instantaneous. The Reputation Layer applies a weighted moving average; a single run of good attestations does not immediately restore lost standing.
+These signals may inform future protocol design, but they should not be collapsed into a universal reviewer score in this document.
+
+---
+
+## 7. Reviewer Authority and the Reputation Graph
+
+Attestation authority and the Reputation Graph are related but distinct.
+
+| Layer | Primary Question |
+|---|---|
+| Attestation Authority | Who may issue a scoped review statement, and under what accountability constraints? |
+| Reputation Graph | What contextual contribution, review, dispute, and attestation history exists around an actor? |
+
+The Reputation Graph may preserve a reviewer's attestation history, dispute history, domain context, and correction history. It should not automatically convert that history into a universal authority score.
+
+A reviewer may have strong documentation review context and weak or no authority in infrastructure, governance, or security domains. Chronicle should preserve that distinction.
 
 ---
 
 ## 8. Detection and Limitation of Malicious or Low-Quality Reviewers
 
-### 8.1 Pattern Detection
-- **Cluster attacks:** Coordinated attestations on the same object from Reviewers with shared mutual endorsement history.
-- **Endorsement rings:** A closed set consistently attesting to each other's contributions.
-- **Velocity abuse:** Attestation rate inconsistent with genuine review.
-- **Domain inflation:** Repeated attesting outside established domains without accuracy history.
+A protocol memory system must account for reviewer abuse and low-quality review patterns.
 
-Detected patterns result in **provisionally weighted** attestations with reduced effective weight.
+Potential abuse patterns include:
 
-### 8.2 Sybil Resistance
-Authority requires genuine engagement over time. Multiple coordinated accounts must each independently build authority through calibrated behaviour.
+- coordinated attestations among a small group;
+- repeated mutual endorsement without independent evidence;
+- high-volume review without meaningful rationale;
+- attestations outside declared domain scope;
+- failure to disclose obvious conflicts of interest;
+- repeated disregard for privacy or disclosure constraints;
+- attempts to convert attestation authority into permanent hierarchy.
 
-### 8.3 Automatic Soft Limits
-If attestation loss rate exceeds a threshold within a rolling window, a **soft limit** caps attestation weight for a cooling-off period.
+Possible safeguards include:
 
-### 8.4 Mandatory Review Threshold
-Reviewers accumulating contested attestations above a threshold are placed on the **Mandatory Review List** — subsequent attestations route to Tier-3/4 Reviewers before taking effect.
+- domain-scoped review limits;
+- dispute and correction processes;
+- conflict notes;
+- reviewer history visibility;
+- requirement for written rationale;
+- stronger review for high-impact or sensitive Memory Objects;
+- reduced reliance on reviewers whose attestations are repeatedly disputed or narrowed.
+
+These safeguards remain conceptual until formal governance and implementation rules are defined.
 
 ---
 
 ## 9. Dispute Handling
 
-### 9.1 Grounds for Dispute
-1. **Factual inaccuracy:** Attested object contains demonstrably incorrect claims.
-2. **Scope error:** Attestation issued outside the Reviewer's established domain.
-3. **Procedural violation:** Issued without adequate review (e.g., during a velocity event).
-4. **Conflict of interest:** Documented relationship constituting a conflict under protocol guidelines.
-5. **Bad faith:** Evident intent to mislead, suppress knowledge, or manipulate standing.
+Attestation authority should be challengeable. A Memory Object, attestation, reviewer role, or authority claim may be disputed.
 
-### 9.2 Dispute Window
-Formal disputes must be filed within the defined Dispute Window. After closure, systematic re-evaluation remains possible but individual dispute process is unavailable.
+Possible grounds for dispute include:
 
-### 9.3 Dispute Process Flow
+1. **Factual inaccuracy:** The attestation misrepresents the evidence.
+2. **Scope error:** The reviewer attests outside their relevant domain.
+3. **Procedural concern:** The review appears incomplete or unsupported.
+4. **Conflict of interest:** The reviewer has an undeclared relationship or incentive that affects interpretation.
+5. **Privacy concern:** The attestation exposes or relies on sensitive material improperly.
+6. **Bad faith:** The attestation appears intended to manipulate memory, reputation, or visibility.
 
-```
-[Dispute Filed]
-       |
-       v
-[Triage: completeness and valid grounds check]
-       |
-       +-- Invalid --> [Dismissed; Reviewer notified]
-       |
-       v
-[Three-member panel: Tier-3/4 Reviewers not involved in original attestation]
-       |
-       v
-[Evidentiary review: Memory Object, attestation record, Reviewer history]
-       |
-       v
-[Panel majority finding]
-       |
-       +-- Upheld --> [Challenger receives calibration note]
-       |
-       +-- Overturned --> [Integrity Score reduced; attestation downweighted or voided]
-                 |
-                 +-- [Bad faith] --> [Suspension process: Section 10]
-```
-
-### 9.4 Appeal
-One appeal permitted within a defined period; requires new argument or newly surfaced evidence. Evaluated by a non-overlapping expanded panel.
-
-### 9.5 Effect on Knowledge Inheritance
-Overturned attestations cause all inheriting Memory Objects to carry a provisional flag until re-attested or the chain is re-evaluated.
+A dispute should preserve context rather than silently erase the original attestation. The lifecycle and archive layers should record the dispute, review outcome, and any later correction or narrowing.
 
 ---
 
-## 10. Revocation, Reduction, and Suspension of Authority
+## 10. Authority Reduction, Limitation, and Suspension
 
-### 10.1 Authority Reduction
-Automatic outcome of calibration failure. No formal process required. Reversible through improved performance.
+Reviewer authority should be reducible when review behavior becomes unreliable or harmful.
 
-### 10.2 Temporary Suspension
-Conditions:
-- Bad faith finding by a dispute panel.
-- Repeated soft-limit triggers within a rolling window.
-- Pattern detection identifying participation in a coordinated manipulation event.
+Possible outcomes include:
 
-During suspension, attestations downweighted to minimum effective weight. Tier classification retained; attestation rights suspended.
+| Outcome | Meaning |
+|---|---|
+| Scope narrowing | Reviewer remains relevant in one domain but loses relevance in another |
+| Additional review required | Future attestations require another reviewer or process before being accepted |
+| Temporary limitation | Reviewer is paused from issuing certain attestations while a dispute is reviewed |
+| Attestation narrowing | Prior attestation remains visible but with reduced or clarified scope |
+| Attestation revocation | Prior attestation is no longer treated as valid within its original scope |
+| Authority suspension | Reviewer cannot issue attestations in a defined domain or process until reviewed |
 
-### 10.3 Permanent Revocation
-Requires:
-- Co-signature by a minimum number of Tier-4 Reviewers;
-- Full evidentiary panel review;
-- Finding of sustained bad faith, systematic manipulation, or single egregious act corrupting significant Knowledge Objects.
-
-Existing attestations retroactively downweighted; contributions flagged. Reputation Layer reflects revocation permanently. Reinstatement requires a new full review and affirmative Tier-4 panel vote after a minimum waiting period.
-
-### 10.4 Domain-Scoped Revocation
-Where bad-faith actions were domain-specific: Reviewer retains authority in other domains, permanently excluded from the affected domain.
+These outcomes should be evidence-linked, dispute-aware, and reversible where appropriate. Permanent exclusion or revocation would require stronger governance rules than this research-stage document defines.
 
 ---
 
-## 11. Interaction with the Reputation Layer
+## 11. Interaction with the Reputation Graph
 
-| Event | Attestation Effect | Reputation Layer Effect |
+Attestation authority events may become contextual records in the Reputation Graph.
+
+| Event | Attestation Effect | Reputation Graph Context |
 |---|---|---|
-| Attestation accepted, ages well | Calibration score increase | Positive signal in knowledge validity dimension |
-| Attestation overturned in dispute | Calibration + Integrity Score decrease | Negative signal; permanent dispute record |
-| Dispute panel ruling consistent with outcome | Minor authority bonus | Peer trust signal in governance dimension |
-| Placed on Mandatory Review List | Secondary sign-off required | Flagged status visible in contributor profile |
-| Suspended | Authority non-exercisable for suspension period | Active suspension flag in Reputation Layer |
-| Permanently revoked | All attestations retroactively downweighted | Revocation permanently recorded; affects all dimensions |
-| Knowledge Inheritance attested | Parent Reviewer receives downstream attribution | Reputation Layer tracks lineage contributions |
+| Well-scoped attestation | Supports a Memory Object within a defined scope | Reviewer has evidence-aware review history in that domain |
+| Attestation narrowed | Original scope is reduced | Reviewer history shows a correction or limitation |
+| Attestation overturned | Prior review no longer supports the original claim | Dispute and correction context remain visible |
+| Repeated scope errors | Reviewer claims beyond domain relevance | Reviewer authority context may be weakened in that domain |
+| Reviewer conflict identified | Attestation may require additional review | Conflict history becomes part of review context |
+| Authority suspended | Reviewer cannot issue certain attestations during review | Suspension is preserved as contextual history |
+| Inheritance-related review | Reviewer evaluates whether one Memory Object inherits from another | Review history becomes part of knowledge lineage context |
+
+The Reputation Graph should preserve review history as context, not as a universal score or leaderboard.
 
 ---
 
 ## 12. Example Scenarios
 
-### Scenario A — Legitimate Authority Accumulation
-A participant at Tier 0 submits Memory Objects in computational linguistics. Three are accepted and receive peer attestations. Authority Score crosses 100 (Tier 1). Attestations age well; Calibration Score rises. After 14 months, score reaches 340 (Tier 2). Dispute panel participation aligns with eventual findings. Score continues to rise.
+### Scenario A — Legitimate Domain Authority
+
+A contributor repeatedly produces accepted documentation Memory Objects and provides careful source-linked reviews of other documentation records. Over time, that actor may become a relevant documentation reviewer. This does not imply authority over security, infrastructure, or governance records.
 
 ### Scenario B — Domain Boundary Violation
-A Tier-3 Reviewer in structural engineering attests to biochemistry objects. Domain match coefficient is 0.15 — effective weight is very low. Pattern detection flags velocity anomalies. Attestations are provisionally weighted pending calibration assessment in that domain.
 
-### Scenario C — Coordinated Ring Detection
-Four Tier-1 Reviewers consistently attest to each other's objects within hours of submission. Pattern detection flags the cluster. No attestation history outside the ring is found. All four placed on Mandatory Review; ring-sourced attestations retroactively downweighted.
+A reviewer with strong localization context issues an attestation about infrastructure security. The attestation may be challenged because the review scope does not match the reviewer's demonstrated domain context. The record should be narrowed, disputed, or routed to a more relevant domain reviewer.
 
-### Scenario D — Dispute and Overturning
-A Tier-2 Reviewer attests to a legal studies object containing a mischaracterised judicial precedent. A Tier-3 Reviewer disputes it with primary source evidence. Panel finds attestation was issued without adequate primary-source review. Overturned. Integrity Score reduced; Authority Score drops from 420 to 381.
+### Scenario C — Coordinated Review Pattern
 
-### Scenario E — Suspension and Partial Recovery
-A Tier-3 Reviewer is found to have suppressed competing Memory Object interpretations. Bad faith finding issued; 90-day suspension. Authority Score drops from 720 to 490 (Tier 2). Over 26 months of accurate, good-faith attestations, score recovers to Tier 3. The bad faith event remains permanently in the Reputation Layer record.
+A small group repeatedly attests to each other's Memory Objects without independent evidence or rationale. Chronicle should preserve those attestations as review history while marking the pattern as requiring additional scrutiny.
+
+### Scenario D — Dispute and Correction
+
+A reviewer attests to a research Memory Object that later proves to overstate its source evidence. A dispute narrows the attestation scope. The original review remains historically visible, but future readers see the correction and limitation.
+
+### Scenario E — Temporary Authority Limitation
+
+A reviewer repeatedly ignores privacy constraints when reviewing infrastructure evidence. Their review authority in infrastructure contexts may be limited until privacy-aware review behavior is restored or clarified.
 
 ---
 
 ## 13. Governance and Evolution of This Model
 
-All parameters — threshold values, score weights, suspension durations, tier boundaries — are defined in the Protocol Specification and subject to the standard governance process. Changes require a proposal, consultation period, and ratification.
+This document does not define final governance procedures. Future governance work may define:
 
-Implementors should always consult the versioned Protocol Specification for current parameter values.
+- who can assign or recognize reviewer roles;
+- how reviewer scope is documented;
+- how disputes are triaged;
+- how authority limitations are reviewed;
+- how reviewer conflicts are disclosed;
+- how cross-domain review should work;
+- how Chronicle Domains may adapt authority rules locally.
+
+Any future authority model should remain aligned with the canonical architecture: memory before rewards, evidence before reputation, privacy before broad disclosure, and contextual authority before universal scoring.
 
 ---
 
 ## 14. Summary
 
-The Attestation Authority Model creates a reliable, self-correcting attestation environment within the Chronicle Protocol Memory Layer:
+The Attestation Authority Model defines how reviewer authority may be understood within Chronicle / Legacy Protocol.
 
-- Authority is earned through demonstrated, calibrated behaviour over time.
-- Attestations carry probabilistic weight, not absolute authority.
-- Domain specificity prevents authority earned in one area from being misapplied to another.
-- The calibration mechanism holds Reviewers accountable to the long-run quality of their judgements.
-- Pattern detection and automatic soft limits contain the impact of bad actors without requiring centralised adjudication for every case.
-- Dispute processes provide a structured mechanism for contesting specific attestations.
-- The most severe sanctions require formal processes with multiple reviewers involved.
-- All outcomes propagate into the Reputation Layer, creating a unified longitudinal record.
+The model is conservative:
 
-The model is conservative by design: it is harder to gain high authority than to lose it, and harder to restore lost authority than to maintain it.
+- authority is earned rather than assumed;
+- authority is domain-scoped rather than universal;
+- attestations are scoped review statements, not truth claims;
+- reviewer history is contextual, not a universal score;
+- disputes and corrections remain part of protocol memory;
+- privacy and disclosure boundaries constrain review;
+- the Reputation Graph preserves review context without becoming a leaderboard.
+
+This document remains a research-stage alignment model. Further work would be required before any production permissions, governance processes, reviewer tiers, or weighting rules could be defined.
 
 ---
 
-*Chronicle Legacy Protocol — Internal Reference Documentation*
+*Chronicle Legacy Protocol — Research Reference Documentation*
