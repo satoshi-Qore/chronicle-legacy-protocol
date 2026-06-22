@@ -88,22 +88,23 @@ This repository is organized as a layered research project. New readers can use 
 | 7 | [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md) | Defines formal lifecycle states, allowed transitions, invalid transitions, review gates, and state effects |
 | 8 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
 | 9 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
-| 10 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
-| 11 | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) | Defines the structured review workflow, decision outcomes, attestation record fields, and lifecycle transition mapping |
-| 12 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
-| 13 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
-| 14 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 15 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 16 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 17 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 18 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 10 | [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md) | Defines disclosure levels, redaction principles, consent-aware memory handling, and privacy boundaries across the memory layer |
+| 11 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
+| 12 | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) | Defines the structured review workflow, decision outcomes, attestation record fields, and lifecycle transition mapping |
+| 13 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
+| 14 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
+| 15 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 16 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 17 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 18 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 19 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
 ## Dependency Flow
 
 ```text
-Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Protocol -> Attestation Authority -> Archive / Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
+Contribution -> Evidence -> Memory Object -> Privacy / Disclosure -> Attestation -> Attestation Protocol -> Attestation Authority -> Archive / Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
 ```
 
 | Dependency | Primary Document |
@@ -112,6 +113,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Protocol
 | Evidence | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) |
 | Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
 | Memory Object Schema | [Memory Object Schema](./docs/Memory_Object_Schema.md) |
+| Privacy / Disclosure | [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md) |
 | Attestation | [Attestation Model](./docs/Attestation_Model.md) |
 | Attestation Protocol | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) |
 | Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
@@ -125,7 +127,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Protocol
 
 | Phase | Focus | Expected Output | Status |
 |---|---|---|---|
-| Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, memory object model, memory object schema, lifecycle model, lifecycle state machine, archive model, evidence quality framework, and protocol memory definition | In progress |
+| Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, memory object model, memory object schema, lifecycle model, lifecycle state machine, archive model, evidence quality framework, privacy and disclosure framework, and protocol memory definition | In progress |
 | Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, attestation protocol specification, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
@@ -144,6 +146,7 @@ Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Protocol
 | Lifecycle State Machine | Drafted as specification candidate | Refine transition permissions, reviewer thresholds, and implementation test cases |
 | Chronicle Archive | Archive model drafted | Refine preservation modes, redaction rules, archival integrity requirements, and link-rot handling |
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
+| Privacy and Disclosure | Drafted as research framework | Refine consent handling, restricted records, redaction workflows, and AI retrieval boundaries |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
 | Attestation Protocol | Drafted as specification candidate | Refine quorum rules, dispute thresholds, reviewer independence, and validation test cases |
@@ -179,6 +182,7 @@ chronicle-legacy-protocol/
 |   |-- Lifecycle_State_Machine.md
 |   |-- Chronicle_Archive_Model.md
 |   |-- Evidence_Quality_Framework.md
+|   |-- Privacy_and_Disclosure_Framework.md
 |   |-- Knowledge_Inheritance_Framework.md
 |   |-- Reputation_Graph.md
 |   |-- AI_Mentor_Safety_Model.md
@@ -221,6 +225,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md)
 - [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md)
 - [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md)
+- [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md)
 - [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md)
 - [Reputation Graph](./docs/Reputation_Graph.md)
 - [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
