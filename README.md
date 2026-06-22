@@ -71,6 +71,7 @@ This repository is organized as a layered research project. New readers can use 
 | 13 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
 | 14 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 | 15 | [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md) | Defines how Archive records contribute to Reputation interpretation while ensuring reputation remains secondary to protocol memory |
+| 16 | [Chronicle Self-Governance](./docs/Chronicle_Self_Governance.md) | Defines how Chronicle evolves, how its rules may change, and how governance decisions become part of protocol memory |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
@@ -125,6 +126,7 @@ Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputat
 | Chronicle Network | Drafted | Expand network-level architecture and access model |
 | Future Research | Drafted | Prioritize open questions for specification work |
 | Archive Reputation Interface | Drafted | Refine signal classification, lifecycle-aware interpretation rules, and privacy boundary enforcement |
+| Chronicle Self-Governance | Drafted | Refine governance actor model, ADR structure, RCP lifecycle, and dispute resolution process |
 
 ## Repository Structure
 
@@ -151,6 +153,7 @@ chronicle-legacy-protocol/
 |   |-- Decision_Record_Template.md
 |   |-- Related_Work.md
 |   |-- Archive_Reputation_Interface.md
+|   |-- Chronicle_Self_Governance.md
 |   |-- Threat_Model.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
@@ -190,6 +193,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Decision Record Template](./docs/Decision_Record_Template.md)
 - [Related Work](./docs/Related_Work.md)
 - [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md)
+- [Chronicle Self-Governance](./docs/Chronicle_Self_Governance.md)
 - [Threat Model](./docs/Threat_Model.md)
 - [Sample Decision Record](./research/sample-decision-record.md)
 - [Contribution Guidelines](./CONTRIBUTING.md)
