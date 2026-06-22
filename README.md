@@ -72,6 +72,7 @@ This repository is organized as a layered research project. New readers can use 
 | 14 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
 | 15 | [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md) | Defines how Archive records contribute to Reputation interpretation while ensuring reputation remains secondary to protocol memory |
 | 16 | [Chronicle Self-Governance](./docs/Chronicle_Self_Governance.md) | Defines how Chronicle evolves, how its rules may change, and how governance decisions become part of protocol memory |
+| 17 | [Chronicle Network Architecture](./docs/Chronicle_Network_Architecture.md) | Defines how Chronicle may evolve into a multi-ecosystem memory network while preserving protocol neutrality, portability, and historical continuity |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
@@ -99,7 +100,7 @@ Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputat
 | Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
-| Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | Planned |
+| Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | In progress |
 | Phase 6 | Specification and prototype research | Formal data models, privacy controls, validation flows, and possible implementation prototypes | Future research |
 
 ## Research Status
@@ -123,7 +124,7 @@ Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputat
 | Knowledge Inheritance | Refined architecture model | Add concrete lineage examples and inheritance review criteria |
 | AI Mentor Layer | Safety model drafted | Add retrieval policy examples and source-citation response patterns |
 | Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
-| Chronicle Network | Drafted | Expand network-level architecture and access model |
+| Chronicle Network | Network architecture drafted | Refine domain model, cross-domain exchange conventions, and identity continuity approach |
 | Future Research | Drafted | Prioritize open questions for specification work |
 | Archive Reputation Interface | Drafted | Refine signal classification, lifecycle-aware interpretation rules, and privacy boundary enforcement |
 | Chronicle Self-Governance | Drafted | Refine governance actor model, ADR structure, RCP lifecycle, and dispute resolution process |
@@ -154,6 +155,7 @@ chronicle-legacy-protocol/
 |   |-- Related_Work.md
 |   |-- Archive_Reputation_Interface.md
 |   |-- Chronicle_Self_Governance.md
+|   |-- Chronicle_Network_Architecture.md
 |   |-- Threat_Model.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
@@ -194,6 +196,7 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 - [Related Work](./docs/Related_Work.md)
 - [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md)
 - [Chronicle Self-Governance](./docs/Chronicle_Self_Governance.md)
+- [Chronicle Network Architecture](./docs/Chronicle_Network_Architecture.md)
 - [Threat Model](./docs/Threat_Model.md)
 - [Sample Decision Record](./research/sample-decision-record.md)
 - [Contribution Guidelines](./CONTRIBUTING.md)
