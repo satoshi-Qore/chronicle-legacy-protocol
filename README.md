@@ -1,5 +1,3 @@
-![Chronicle Legacy Banner](./chronicle-legacy-banner.png)
-
 # Chronicle / Legacy Protocol
 
 A documentation-first blockchain research project for a Protocol Memory Layer that preserves ecosystem contribution, knowledge, reputation, and historical legacy.
