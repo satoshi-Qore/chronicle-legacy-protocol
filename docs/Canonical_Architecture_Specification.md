@@ -9,7 +9,7 @@
 
 This document defines the canonical architecture of Chronicle / Legacy Protocol.
 
-Chronicle has several focused research documents, including the Identity and Pseudonymity Model, Memory Object Model, Evidence Quality Framework, Privacy and Disclosure Framework, Attestation Model, Reputation Graph, Chronicle Archive Model, Knowledge Inheritance Framework, and AI Mentor Safety Model. Those documents provide detailed exploration of individual layers.
+Chronicle has several focused research documents, including the Identity and Pseudonymity Model, Contribution Submission Protocol, Memory Object Model, Evidence Quality Framework, Privacy and Disclosure Framework, Attestation Model, Reputation Graph, Chronicle Archive Model, Knowledge Inheritance Framework, and AI Mentor Safety Model. Those documents provide detailed exploration of individual layers.
 
 This specification defines how those layers fit together.
 
@@ -36,7 +36,7 @@ The canonical Chronicle architecture follows this flow:
 
 ```text
 Identity / Pseudonymity
--> Contribution
+-> Contribution Submission
 -> Evidence
 -> Memory Object
 -> Evidence Quality
@@ -55,12 +55,12 @@ Identity / Pseudonymity
 A shorter reader-friendly version is:
 
 ```text
-Contribution -> Evidence -> Memory Object -> Attestation -> Archive/Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
+Identity -> Contribution Submission -> Evidence -> Memory Object -> Attestation -> Archive/Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
 ```
 
 This ordering is important.
 
-A contribution is not attested directly in isolation. First, the contribution or event is associated with an actor reference, represented as a Memory Object with evidence and context, then interpreted through evidence quality and privacy boundaries. Attestation then reviews the Memory Object, its evidence, its claimed scope, and the relevant actor references.
+A contribution is not attested directly in isolation. First, the contribution or event is associated with an actor reference through a submission, supported by evidence, represented as a Memory Object with context, then interpreted through evidence quality and privacy boundaries. Attestation then reviews the Memory Object, its evidence, its claimed scope, and the relevant actor references.
 
 ## 4. Architectural Principle
 
@@ -76,6 +76,7 @@ The architecture must therefore preserve uncertainty, limitations, revision hist
 |---|---|---|
 | Identity / Pseudonymity | Actor continuity and attribution references for contributors, reviewers, mentors, and other participants without requiring real-world identity disclosure by default | [Identity and Pseudonymity Model](./Identity_and_Pseudonymity_Model.md) |
 | Contribution | A human or ecosystem action that may be worth preserving as memory | This specification |
+| Contribution Submission | The intake record that connects an actor reference, contribution description, evidence package, and reviewable scope before Memory Object formation | [Contribution Submission Protocol](./Contribution_Submission_Protocol.md) |
 | Evidence | Source material supporting the existence, scope, or interpretation of a contribution or event | [Evidence Quality Framework](./Evidence_Quality_Framework.md) |
 | Memory Object | A structured and verifiable memory record for a contribution, decision, knowledge artifact, governance event, or mentorship interaction | [Memory Object Model](./Memory_Object_Model.md) |
 | Evidence Quality | The confidence, durability, reviewability, and limitation profile of supporting evidence | [Evidence Quality Framework](./Evidence_Quality_Framework.md) |
@@ -109,7 +110,26 @@ It should support:
 
 This layer does not require real-world identity verification by default. It identifies protocol memory actors and actor continuity, not legal persons.
 
-### 6.2 Contribution Layer
+### 6.2 Contribution Submission Layer
+
+The Contribution Submission Layer defines how a contribution enters Chronicle before it becomes protocol memory.
+
+It should support:
+
+- `submission_id` references;
+- contributor and submitter references;
+- contribution type classification;
+- initial description and context;
+- evidence package collection;
+- incomplete submission handling;
+- duplicate detection;
+- disputed submission handling;
+- privacy and disclosure notes;
+- candidate Memory Object formation.
+
+A submission is not the contribution itself and is not yet a Memory Object. It is the intake layer that determines whether enough identity context, evidence, and reviewable scope exist to create a candidate Memory Object.
+
+### 6.3 Contribution Layer
 
 The Contribution Layer contains the original human or ecosystem activity.
 
@@ -127,9 +147,9 @@ Examples include:
 - decision record;
 - mentorship interaction.
 
-A contribution is not automatically protocol memory. It becomes a candidate for protocol memory only when it is represented with evidence and context.
+A contribution is not automatically protocol memory. It becomes a candidate for protocol memory only when it is submitted with evidence and context.
 
-### 6.3 Evidence Layer
+### 6.4 Evidence Layer
 
 The Evidence Layer contains source material that supports the existence, authorship, scope, relevance, or interpretation of a Memory Object.
 
@@ -150,7 +170,7 @@ Evidence may include:
 
 Evidence does not equal value. Evidence supports review, but reviewers still need to interpret scope, relevance, quality, limitations, identity references, and disclosure boundaries.
 
-### 6.4 Memory Object Layer
+### 6.5 Memory Object Layer
 
 The Memory Object Layer converts scattered activity into structured memory.
 
@@ -170,12 +190,13 @@ A Memory Object should include, at minimum:
 
 Memory Objects are the architectural center of Chronicle. Other layers either evaluate, preserve, connect, retrieve, or inherit from Memory Objects.
 
-### 6.5 Evidence Quality Layer
+### 6.6 Evidence Quality Layer
 
 The Evidence Quality Layer classifies how reliable, durable, complete, and reviewable the supporting evidence is.
 
 Evidence quality should influence:
 
+- submission completeness;
 - review depth;
 - lifecycle transitions;
 - attestation confidence;
@@ -185,7 +206,7 @@ Evidence quality should influence:
 
 Evidence quality must not be converted directly into reputation, reward, or authority.
 
-### 6.6 Privacy and Disclosure Layer
+### 6.7 Privacy and Disclosure Layer
 
 The Privacy and Disclosure Layer defines how sensitive, personal, operational, restricted, or consent-dependent information should be handled across Chronicle.
 
@@ -202,7 +223,7 @@ It should define:
 
 Privacy is not an optional implementation detail. It is a protocol memory requirement because long-term archives can expose contributor identity, governance context, infrastructure details, mentorship interactions, and historical disputes.
 
-### 6.7 Attestation Layer
+### 6.8 Attestation Layer
 
 The Attestation Layer reviews Memory Objects.
 
@@ -222,7 +243,7 @@ An attestation may confirm or evaluate:
 
 Attestation is scoped. A reviewer may attest that a guide is useful for onboarding without attesting that it is technically complete, current, or governance-relevant.
 
-### 6.8 Attestation Authority Layer
+### 6.9 Attestation Authority Layer
 
 The Attestation Authority Layer defines who may issue attestations, in what domain, with what scope, and under what accountability constraints.
 
@@ -237,7 +258,7 @@ Authority should be:
 
 Any scoring, tiering, or weighting model remains research-stage unless later formalized in a protocol specification.
 
-### 6.9 Lifecycle Layer
+### 6.10 Lifecycle Layer
 
 The Lifecycle Layer defines the status of a Memory Object over time.
 
@@ -258,7 +279,7 @@ A Memory Object may also become:
 
 Lifecycle states are not strictly linear. Records must remain revisable because ecosystem memory can be corrected, challenged, reinterpreted, redacted, or deprecated.
 
-### 6.10 Protocol Memory Layer
+### 6.11 Protocol Memory Layer
 
 The Protocol Memory Layer is the organizing layer that connects Memory Objects with evidence, attestations, lifecycle status, archive entries, reputation relationships, knowledge lineage, governance context, identity references, privacy constraints, and AI-assisted retrieval.
 
@@ -273,7 +294,7 @@ It is not:
 
 It is a structured memory system for preserving reviewable context.
 
-### 6.11 Chronicle Archive Layer
+### 6.12 Chronicle Archive Layer
 
 The Chronicle Archive Layer preserves Memory Objects and related source context over time.
 
@@ -290,7 +311,7 @@ The archive may preserve:
 
 The archive does not make records true. It makes records discoverable, contextual, reviewable, and historically traceable.
 
-### 6.12 Reputation Graph Layer
+### 6.13 Reputation Graph Layer
 
 The Reputation Graph Layer represents contextual reputation relationships.
 
@@ -306,7 +327,7 @@ Reputation in Chronicle is:
 
 The Reputation Graph should not reduce contributors to a single score. It should help future participants understand where contribution, review, trust, dispute, correction, and knowledge lineage came from.
 
-### 6.13 Knowledge Inheritance Layer
+### 6.14 Knowledge Inheritance Layer
 
 The Knowledge Inheritance Layer explains how Memory Objects remain useful across time.
 
@@ -320,7 +341,7 @@ Canonical relationship types include:
 
 Knowledge Inheritance supports contributor continuity, onboarding, governance learning, research development, and responsible handoff between contributor generations.
 
-### 6.14 AI Mentor Layer
+### 6.15 AI Mentor Layer
 
 The AI Mentor Layer is an interface for source-linked retrieval, explanation, learning support, and navigation through protocol memory.
 
@@ -345,7 +366,7 @@ It must not:
 - treat archived memory as final truth;
 - generate unsupported claims.
 
-### 6.15 Legacy Layer
+### 6.16 Legacy Layer
 
 The Legacy Layer is the long-term outcome of the architecture.
 
@@ -369,8 +390,10 @@ Legacy must remain accountable, revisable, privacy-aware, identity-aware, and co
 ```text
 Identity / Pseudonymity
   provides actor continuity without requiring real-world identity disclosure
+Contribution Submission
+  creates the intake record and evidence package for a candidate Memory Object
 Contribution
-  produces evidence and candidate context
+  produces ecosystem activity that may be submitted for memory preservation
 Evidence
   supports Memory Object creation and review
 Memory Object
@@ -405,9 +428,9 @@ Chronicle may involve several actor categories. These are conceptual roles, not 
 
 | Actor | Role |
 |---|---|
-| Contributor | Produces or submits a contribution, record, decision, artifact, or knowledge source |
-| Submitter | Creates a candidate Memory Object or claim |
-| Reviewer | Reviews a Memory Object, evidence, or claim scope |
+| Contributor | Produces or is associated with a contribution, record, decision, artifact, or knowledge source |
+| Submitter | Creates a contribution submission or candidate record |
+| Reviewer | Reviews a submission, Memory Object, evidence, or claim scope |
 | Attestor | Issues a structured attestation within a defined scope |
 | Maintainer | Reviews repository, documentation, or technical contribution context |
 | Governance Participant | Provides or reviews governance-related context |
@@ -428,6 +451,7 @@ Primary node types:
 - Actor Identity Reference;
 - Contributor;
 - Reviewer;
+- Contribution Submission;
 - Memory Object;
 - Evidence Source;
 - Disclosure Context;
@@ -443,12 +467,14 @@ Primary relationship types:
 | Relationship | Meaning |
 |---|---|
 | `identified_as` | An actor is represented by a scoped identity or pseudonymous reference |
-| `submitted_by` | A Memory Object was submitted by a contributor or participant |
-| `supported_by` | A Memory Object is supported by evidence |
-| `disclosure_limited_by` | A Memory Object, evidence source, or archive entry has privacy, redaction, or consent constraints |
-| `reviewed_by` | A Memory Object was reviewed by a reviewer |
+| `submitted_by` | A submission or Memory Object was submitted by a contributor or participant |
+| `submitted_as` | A contribution entered Chronicle as a contribution submission |
+| `forms_candidate_object` | A reviewed submission may become a candidate Memory Object |
+| `supported_by` | A submission or Memory Object is supported by evidence |
+| `disclosure_limited_by` | A submission, Memory Object, evidence source, or archive entry has privacy, redaction, or consent constraints |
+| `reviewed_by` | A submission or Memory Object was reviewed by a reviewer |
 | `attested_by` | A Memory Object received a scoped attestation |
-| `disputed_by` | A Memory Object, evidence source, disclosure decision, identity linkage, or attestation was challenged |
+| `disputed_by` | A submission, Memory Object, evidence source, disclosure decision, identity linkage, or attestation was challenged |
 | `corrected_by` | A record was corrected or revised by a contributor or reviewer |
 | `archived_as` | A Memory Object has an archive entry |
 | `contributes_to_reputation_context` | A Memory Object informs domain-specific reputation interpretation |
@@ -462,18 +488,19 @@ Primary relationship types:
 
 Chronicle records should be interpreted according to the following rules:
 
-1. A Memory Object is not the original contribution; it is a structured record of it.
-2. Actor identity references preserve continuity and attribution; they do not reveal real-world identity by default.
-3. Evidence confirms source context, not automatic value.
-4. Privacy and disclosure metadata affects what can be shown, reviewed, archived, inherited, or retrieved.
-5. Attestation confirms a scoped review statement, not universal truth.
-6. Attestation authority is domain-limited and accountable.
-7. Reputation is contextual and relationship-based, not a universal score.
-8. Archived records remain historically useful but may be outdated, disputed, deprecated, redacted, or superseded.
-9. Knowledge inheritance preserves lineage, not permanent authority.
-10. AI mentor outputs must remain source-linked, uncertainty-aware, privacy-aware, and identity-aware.
-11. Legacy means continuity of memory, not permanent hierarchy.
-12. Dispute, revision, redaction, and deprecation are normal parts of the system.
+1. A contribution submission is an intake record, not final protocol memory.
+2. A Memory Object is not the original contribution; it is a structured record of it.
+3. Actor identity references preserve continuity and attribution; they do not reveal real-world identity by default.
+4. Evidence confirms source context, not automatic value.
+5. Privacy and disclosure metadata affects what can be shown, reviewed, archived, inherited, or retrieved.
+6. Attestation confirms a scoped review statement, not universal truth.
+7. Attestation authority is domain-limited and accountable.
+8. Reputation is contextual and relationship-based, not a universal score.
+9. Archived records remain historically useful but may be outdated, disputed, deprecated, redacted, or superseded.
+10. Knowledge inheritance preserves lineage, not permanent authority.
+11. AI mentor outputs must remain source-linked, uncertainty-aware, privacy-aware, and identity-aware.
+12. Legacy means continuity of memory, not permanent hierarchy.
+13. Dispute, revision, redaction, and deprecation are normal parts of the system.
 
 ## 11. Canonical Non-Goals
 
@@ -505,6 +532,7 @@ This document is the canonical architecture reference. Other documents should be
 | [Architecture Diagram](./Architecture_Diagram.md) | Visual representation of the canonical flow |
 | [Protocol Memory Layer](./Protocol_Memory_Layer.md) | Explains the central memory layer and design problem |
 | [Identity and Pseudonymity Model](./Identity_and_Pseudonymity_Model.md) | Defines actor continuity, pseudonymous contribution, reviewer identity, and identity boundaries |
+| [Contribution Submission Protocol](./Contribution_Submission_Protocol.md) | Defines contribution intake, evidence package formation, duplicate handling, and candidate Memory Object creation |
 | [Memory Object Model](./Memory_Object_Model.md) | Defines the main record type |
 | [Memory Object Schema](./Memory_Object_Schema.md) | Defines draft Memory Object fields, validation expectations, and object types |
 | [Memory Lifecycle](./Memory_Lifecycle.md) | Defines record states and transitions |
@@ -544,7 +572,7 @@ The following areas remain unresolved and should be treated as future specificat
 | Gap | Why It Matters |
 |---|---|
 | Formal identity continuity rules | Needed to prevent unstable identity links, false attribution, pseudonym over-linking, and reviewer impersonation |
-| Contribution submission protocol | Needed to define how contribution claims become candidate Memory Objects |
+| Contribution submission review thresholds | Needed to define when incomplete submissions become candidate Memory Objects |
 | Type-specific Memory Object schemas | Needed before implementation, indexing, or interoperability |
 | Attestation authority parameters | Needed to avoid arbitrary reviewer power or speculative scoring |
 | Formal privacy and consent rules | Needed to refine disclosure levels, contributor consent, redaction requests, and restricted access |
@@ -559,21 +587,22 @@ The following areas remain unresolved and should be treated as future specificat
 
 The next architecture documents should be specification-oriented rather than idea-oriented:
 
-1. `Contribution_Submission_Protocol.md`
-2. `Archive_Reputation_Interface.md`
-3. `Chronicle_Network_Architecture.md`
-4. `Research_Methodology_and_Evaluation.md`
-5. `Identity_Linkage_and_Portability_Rules.md`
+1. `Archive_Reputation_Interface.md`
+2. `Chronicle_Network_Architecture.md`
+3. `Research_Methodology_and_Evaluation.md`
+4. `Identity_Linkage_and_Portability_Rules.md`
+5. `Submission_Review_Thresholds.md`
 
 These documents should reduce ambiguity and move Chronicle from concept architecture toward protocol specification readiness.
 
 ## 16. Summary
 
-Chronicle / Legacy Protocol is best understood as a Protocol Memory Layer composed of actor identity continuity, structured Memory Objects, evidence quality, privacy-aware disclosure, scoped attestations, accountable reviewer authority, lifecycle-aware archival preservation, contextual reputation, knowledge inheritance, and safe AI-assisted retrieval.
+Chronicle / Legacy Protocol is best understood as a Protocol Memory Layer composed of actor identity continuity, contribution submission, structured Memory Objects, evidence quality, privacy-aware disclosure, scoped attestations, accountable reviewer authority, lifecycle-aware archival preservation, contextual reputation, knowledge inheritance, and safe AI-assisted retrieval.
 
 The architecture is strongest when it remains conservative:
 
 - preserve memory before incentives;
+- preserve submission context before Memory Object formation;
 - preserve evidence before reputation;
 - preserve identity continuity before identity exposure;
 - preserve privacy before broad disclosure;
