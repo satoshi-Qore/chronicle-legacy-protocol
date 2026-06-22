@@ -49,28 +49,6 @@ Blockchains often preserve transactions well, but they do not automatically pres
 
 A protocol memory layer could help future contributors understand who built what, why decisions were made, which knowledge should be inherited, and how reputation emerged from verified participation rather than speculation or visibility alone.
 
-## Canonical Architecture
-
-The canonical architecture specification serves as the primary reference for Chronicle / Legacy Protocol.
-
-Readers seeking the authoritative system model should begin with:
-
-[Canonical Architecture Specification](./docs/Canonical_Architecture_Specification.md)
-
-Core Flow:
-
-```text
-Identity / Pseudonymity
--> Contribution Submission
--> Evidence
--> Memory Object
--> Attestation
--> Archive / Reputation
--> Knowledge Inheritance
--> AI Mentor
--> Legacy
-```
-
 ## Research Map
 
 This repository is organized as a layered research project. New readers can use the map below as a suggested reading path.
@@ -78,60 +56,46 @@ This repository is organized as a layered research project. New readers can use 
 | Step | Document | Role in the Research |
 |---|---|---|
 | 0 | [Concept FAQ](./docs/Concept_FAQ.md) | Provides a quick question-and-answer introduction for new readers |
-| 1 | [Canonical Architecture Specification](./docs/Canonical_Architecture_Specification.md) | Defines the authoritative system model, terminology, component boundaries, and dependency flow |
-| 2 | [Architecture Diagram](./docs/Architecture_Diagram.md) | Provides a high-level view of the Chronicle / Legacy Protocol research layers |
-| 3 | [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md) | Defines the central problem space and the purpose of protocol memory |
-| 4 | [Identity and Pseudonymity Model](./docs/Identity_and_Pseudonymity_Model.md) | Defines how contributors, reviewers, mentors, and other actors are represented while preserving pseudonymity and continuity |
-| 5 | [Contribution Submission Protocol](./docs/Contribution_Submission_Protocol.md) | Defines how a contribution enters Chronicle and becomes eligible to form a candidate Memory Object |
-| 6 | [Memory Object Model](./docs/Memory_Object_Model.md) | Defines the conceptual unit of record used to preserve contribution and knowledge context |
-| 7 | [Memory Object Schema](./docs/Memory_Object_Schema.md) | Defines canonical fields, requirement levels, object types, relationship schema, validation rules, and example object shapes |
-| 8 | [Memory Lifecycle](./docs/Memory_Lifecycle.md) | Explains how records move through draft, review, verification, dispute, archival, and deprecation states |
-| 9 | [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md) | Defines formal lifecycle states, allowed transitions, invalid transitions, review gates, and state effects |
-| 10 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
-| 11 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
-| 12 | [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md) | Defines disclosure levels, redaction principles, consent-aware memory handling, and privacy boundaries across the memory layer |
-| 13 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
-| 14 | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) | Defines the structured review workflow, decision outcomes, attestation record fields, and lifecycle transition mapping |
-| 15 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
-| 16 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
-| 17 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
-| 18 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
-| 19 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
-| 20 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
-| 21 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 1 | [Architecture Diagram](./docs/Architecture_Diagram.md) | Provides a high-level view of the Chronicle / Legacy Protocol research layers |
+| 2 | [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md) | Defines the central problem space and the purpose of protocol memory |
+| 3 | [Memory Object Model](./docs/Memory_Object_Model.md) | Defines the conceptual unit of record used to preserve contribution and knowledge context |
+| 4 | [Memory Lifecycle](./docs/Memory_Lifecycle.md) | Explains how records move through draft, review, verification, dispute, archival, and deprecation states |
+| 5 | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) | Defines how Memory Objects, source references, evidence metadata, and historical context may be preserved over time |
+| 6 | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) | Defines how evidence strength, source quality, and uncertainty should be interpreted |
+| 7 | [Attestation Model](./docs/Attestation_Model.md) | Explains how contribution claims may be reviewed, accepted, disputed, or rejected |
+| 8 | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) | Defines reviewer authority, attestation scope, and accountability within the attestation subsystem |
+| 9 | [Reputation Graph](./docs/Reputation_Graph.md) | Defines contextual reputation relationships across contributors, Memory Objects, attestations, domains, and disputes |
+| 10 | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) | Connects archived records to learning paths, handoff context, and long-term knowledge continuity |
+| 11 | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) | Defines safety boundaries for source-linked AI-assisted retrieval and mentorship |
+| 12 | [Governance Context](./docs/Governance_Context.md) | Preserves reasoning, trade-offs, and historical context around ecosystem decisions |
+| 13 | [Threat Model](./docs/Threat_Model.md) | Identifies abuse, manipulation, privacy, and memory-integrity risks |
+| 14 | [Related Work](./docs/Related_Work.md) | Compares Chronicle with existing contribution, attestation, reputation, and governance systems |
+| 15 | [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md) | Defines how Archive records contribute to Reputation interpretation while ensuring reputation remains secondary to protocol memory |
 
 The map separates conceptual foundation, evidence and verification, archival memory, knowledge transmission, AI-assisted retrieval, governance memory, and risk analysis. This helps the repository function as a research framework rather than a loose collection of documents.
 
 ## Dependency Flow
 
 ```text
-Identity / Pseudonymity -> Contribution Submission -> Evidence -> Memory Object -> Privacy / Disclosure -> Attestation -> Attestation Protocol -> Attestation Authority -> Archive / Reputation -> Knowledge Inheritance -> AI Mentor -> Legacy
+Contribution -> Attestation -> Attestation Authority -> Memory Object -> Reputation -> Knowledge Inheritance -> AI Mentor
 ```
 
 | Dependency | Primary Document |
 |---|---|
-| Identity / Pseudonymity | [Identity and Pseudonymity Model](./docs/Identity_and_Pseudonymity_Model.md) |
-| Contribution Submission | [Contribution Submission Protocol](./docs/Contribution_Submission_Protocol.md) |
 | Contribution | [Proof of Contribution](./docs/01-proof-of-contribution.md) |
-| Evidence | [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md) |
-| Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
-| Memory Object Schema | [Memory Object Schema](./docs/Memory_Object_Schema.md) |
-| Privacy / Disclosure | [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md) |
 | Attestation | [Attestation Model](./docs/Attestation_Model.md) |
-| Attestation Protocol | [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md) |
 | Attestation Authority | [Attestation Authority Model](./docs/Attestation_Authority_Model.md) |
-| Archive | [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md) |
+| Memory Object | [Memory Object Model](./docs/Memory_Object_Model.md) |
 | Reputation | [Reputation Graph](./docs/Reputation_Graph.md) |
 | Knowledge Inheritance | [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md) |
 | AI Mentor | [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md) |
-| Legacy | [Legacy Protocol](./docs/06-legacy-protocol.md) |
 
 ## Research Roadmap
 
 | Phase | Focus | Expected Output | Status |
 |---|---|---|---|
-| Phase 1 | Conceptual foundation | Core vision, problem framing, canonical architecture, architecture map, identity and pseudonymity model, contribution submission protocol, memory object model, memory object schema, lifecycle model, lifecycle state machine, archive model, evidence quality framework, privacy and disclosure framework, and protocol memory definition | In progress |
-| Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, attestation protocol specification, evidence categories, and anti-farming safeguards | In progress |
+| Phase 1 | Conceptual foundation | Core vision, problem framing, architecture map, memory object model, lifecycle model, archive model, evidence quality framework, and protocol memory definition | In progress |
+| Phase 2 | Contribution and attestation model | Proof of Contribution, attestation logic, evidence categories, and anti-farming safeguards | In progress |
 | Phase 3 | Governance memory | Governance context, decision records, dispute history, and retrospective review structures | In progress |
 | Phase 4 | Knowledge inheritance and AI mentor research | Knowledge transmission, AI-assisted retrieval, source-linked summaries, safety boundaries, and uncertainty handling | In progress |
 | Phase 5 | Chronicle network design | Multi-ecosystem archive structure, access patterns, contributor interfaces, and research APIs | Planned |
@@ -141,20 +105,13 @@ Identity / Pseudonymity -> Contribution Submission -> Evidence -> Memory Object 
 
 | Area | Current State | Next Research Need |
 |---|---|---|
-| Canonical Architecture | Drafted as source of truth | Keep aligned with all future architecture documents |
 | Protocol Memory Layer | Drafted | Align conceptual layer with memory object, lifecycle, archive, and evidence quality models |
-| Identity and Pseudonymity | Drafted as research framework | Refine identity continuity rules, pseudonym linking, reviewer identity accountability, and Sybil-aware safeguards |
-| Contribution Submission | Drafted as research framework | Refine minimum submission fields, duplicate handling, incomplete submissions, and candidate Memory Object thresholds |
 | Memory Object Model | Refined foundational model | Formalize object identity, validation rules, and future schema constraints |
-| Memory Object Schema | Drafted as specification candidate | Refine type-specific schemas, validation test cases, and serialization format |
 | Memory Lifecycle | Drafted | Refine transition rules, review gates, and archival criteria |
-| Lifecycle State Machine | Drafted as specification candidate | Refine transition permissions, reviewer thresholds, and implementation test cases |
 | Chronicle Archive | Archive model drafted | Refine preservation modes, redaction rules, archival integrity requirements, and link-rot handling |
 | Evidence Quality Framework | Drafted | Refine evidence levels by object type and reviewer role |
-| Privacy and Disclosure | Drafted as research framework | Refine consent handling, restricted records, redaction workflows, and AI retrieval boundaries |
 | Proof of Contribution | Drafted as focused sub-proposal | Align verification model with Chronicle memory-layer requirements |
 | Attestation Model | Drafted | Expand reviewer roles, dispute processes, and abuse resistance |
-| Attestation Protocol | Drafted as specification candidate | Refine quorum rules, dispute thresholds, reviewer independence, and validation test cases |
 | Attestation Authority | Drafted | Align reviewer authority with attestation, reputation, and inheritance models |
 | Governance Context | Drafted | Add more governance memory scenarios |
 | Decision Record Template | Drafted and sample-tested | Add more sample decision records over time |
@@ -167,6 +124,7 @@ Identity / Pseudonymity -> Contribution Submission -> Evidence -> Memory Object 
 | Legacy Protocol | Drafted | Clarify long-term memory without permanent hierarchy |
 | Chronicle Network | Drafted | Expand network-level architecture and access model |
 | Future Research | Drafted | Prioritize open questions for specification work |
+| Archive Reputation Interface | Drafted | Refine signal classification, lifecycle-aware interpretation rules, and privacy boundary enforcement |
 
 ## Repository Structure
 
@@ -178,27 +136,21 @@ chronicle-legacy-protocol/
 |
 |-- docs/
 |   |-- Concept_FAQ.md
-|   |-- Canonical_Architecture_Specification.md
 |   |-- Architecture_Diagram.md
 |   |-- Protocol_Memory_Layer.md
-|   |-- Identity_and_Pseudonymity_Model.md
-|   |-- Contribution_Submission_Protocol.md
 |   |-- Memory_Object_Model.md
-|   |-- Memory_Object_Schema.md
 |   |-- Memory_Lifecycle.md
-|   |-- Lifecycle_State_Machine.md
 |   |-- Chronicle_Archive_Model.md
 |   |-- Evidence_Quality_Framework.md
-|   |-- Privacy_and_Disclosure_Framework.md
 |   |-- Knowledge_Inheritance_Framework.md
 |   |-- Reputation_Graph.md
 |   |-- AI_Mentor_Safety_Model.md
 |   |-- Attestation_Model.md
-|   |-- Attestation_Protocol_Specification.md
 |   |-- Attestation_Authority_Model.md
 |   |-- Governance_Context.md
 |   |-- Decision_Record_Template.md
 |   |-- Related_Work.md
+|   |-- Archive_Reputation_Interface.md
 |   |-- Threat_Model.md
 |   |-- 01-proof-of-contribution.md
 |   |-- 02-contributor-reputation.md
@@ -223,27 +175,21 @@ The numbered documents in `docs/` are early concept notes. They preserve the ini
 ## Key Documents
 
 - [Concept FAQ](./docs/Concept_FAQ.md)
-- [Canonical Architecture Specification](./docs/Canonical_Architecture_Specification.md)
 - [Architecture Diagram](./docs/Architecture_Diagram.md)
 - [Protocol Memory Layer](./docs/Protocol_Memory_Layer.md)
-- [Identity and Pseudonymity Model](./docs/Identity_and_Pseudonymity_Model.md)
-- [Contribution Submission Protocol](./docs/Contribution_Submission_Protocol.md)
 - [Memory Object Model](./docs/Memory_Object_Model.md)
-- [Memory Object Schema](./docs/Memory_Object_Schema.md)
 - [Memory Lifecycle](./docs/Memory_Lifecycle.md)
-- [Lifecycle State Machine](./docs/Lifecycle_State_Machine.md)
 - [Chronicle Archive Model](./docs/Chronicle_Archive_Model.md)
 - [Evidence Quality Framework](./docs/Evidence_Quality_Framework.md)
-- [Privacy and Disclosure Framework](./docs/Privacy_and_Disclosure_Framework.md)
 - [Knowledge Inheritance Framework](./docs/Knowledge_Inheritance_Framework.md)
 - [Reputation Graph](./docs/Reputation_Graph.md)
 - [AI Mentor Safety Model](./docs/AI_Mentor_Safety_Model.md)
 - [Attestation Model](./docs/Attestation_Model.md)
-- [Attestation Protocol Specification](./docs/Attestation_Protocol_Specification.md)
 - [Attestation Authority Model](./docs/Attestation_Authority_Model.md)
 - [Governance Context](./docs/Governance_Context.md)
 - [Decision Record Template](./docs/Decision_Record_Template.md)
 - [Related Work](./docs/Related_Work.md)
+- [Archive Reputation Interface](./docs/Archive_Reputation_Interface.md)
 - [Threat Model](./docs/Threat_Model.md)
 - [Sample Decision Record](./research/sample-decision-record.md)
 - [Contribution Guidelines](./CONTRIBUTING.md)
