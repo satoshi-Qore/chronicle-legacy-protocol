@@ -544,6 +544,7 @@ This document is the canonical architecture reference. Other documents should be
 | [Attestation Authority Model](./Attestation_Authority_Model.md) | Defines reviewer authority and accountability |
 | [Chronicle Archive Model](./Chronicle_Archive_Model.md) | Defines long-term preservation and archive interpretation |
 | [Reputation Graph](./Reputation_Graph.md) | Defines contextual reputation relationships |
+| [Archive Reputation Interface](./Archive_Reputation_Interface.md) | Defines how Archive records contribute to Reputation interpretation while ensuring reputation remains secondary to protocol memory |
 | [Knowledge Inheritance Framework](./Knowledge_Inheritance_Framework.md) | Defines knowledge lineage and continuity |
 | [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md) | Defines safe AI-assisted retrieval boundaries |
 | [Governance Context](./Governance_Context.md) | Defines governance memory and decision reasoning |
@@ -576,7 +577,6 @@ The following areas remain unresolved and should be treated as future specificat
 | Type-specific Memory Object schemas | Needed before implementation, indexing, or interoperability |
 | Attestation authority parameters | Needed to avoid arbitrary reviewer power or speculative scoring |
 | Formal privacy and consent rules | Needed to refine disclosure levels, contributor consent, redaction requests, and restricted access |
-| Archive-Reputation interface | Needed to define when archived records become contextual reputation signals |
 | Archive integrity model | Needed to handle link rot, snapshots, hashes, and source decay |
 | Reputation query model | Needed to explain how contextual reputation is read without becoming a score |
 | Knowledge inheritance criteria | Needed to decide when records inherit, extend, reference, or supersede each other |
@@ -587,11 +587,10 @@ The following areas remain unresolved and should be treated as future specificat
 
 The next architecture documents should be specification-oriented rather than idea-oriented:
 
-1. `Archive_Reputation_Interface.md`
-2. `Chronicle_Network_Architecture.md`
-3. `Research_Methodology_and_Evaluation.md`
-4. `Identity_Linkage_and_Portability_Rules.md`
-5. `Submission_Review_Thresholds.md`
+1. `Chronicle_Network_Architecture.md`
+2. `Research_Methodology_and_Evaluation.md`
+3. `Identity_Linkage_and_Portability_Rules.md`
+4. `Submission_Review_Thresholds.md`
 
 These documents should reduce ambiguity and move Chronicle from concept architecture toward protocol specification readiness.
 
