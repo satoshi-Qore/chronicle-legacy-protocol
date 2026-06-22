@@ -90,6 +90,8 @@ The architecture must therefore preserve uncertainty, limitations, revision hist
 | Knowledge Inheritance | The process by which Memory Objects are referenced, extended, superseded, and reused across contributor generations | [Knowledge Inheritance Framework](./Knowledge_Inheritance_Framework.md) |
 | AI Mentor | A source-linked retrieval and explanation interface that helps users navigate protocol memory without becoming an authority | [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md) |
 | Legacy | Long-term preservation of ecosystem memory, contribution lineage, governance reasoning, and knowledge continuity | This specification |
+| Chronicle Domain | An independently governed instance of Chronicle that maintains its own archive, attestation processes, and governance model | [Chronicle Network Architecture](./Chronicle_Network_Architecture.md) |
+| Chronicle Network | A conceptual framework for connecting independently governed Chronicle Domains into an interoperable protocol memory infrastructure | [Chronicle Network Architecture](./Chronicle_Network_Architecture.md) |
 
 ## 6. Canonical Component Boundaries
 
@@ -439,6 +441,7 @@ Chronicle may involve several actor categories. These are conceptual roles, not 
 | Disputer | Challenges accuracy, authorship, scope, evidence quality, disclosure, identity linkage, or interpretation |
 | Learner | Uses protocol memory for onboarding, research, or knowledge inheritance |
 | AI Mentor Interface | Retrieves and explains source-linked memory under safety and privacy constraints |
+| Domain Operator | Maintains a Chronicle Domain: its archive, governance, attestation model, and privacy policies |
 
 Actors may overlap. A contributor may also become a reviewer in a domain where they have earned authority. A reviewer may also be disputed. Actor roles should remain accountable and scope-limited.
 
@@ -483,6 +486,7 @@ Primary relationship types:
 | `references` | An object cites another object as context |
 | `supersedes` | A later object replaces older guidance or interpretation |
 | `retrieved_by` | An AI mentor or interface retrieved a Memory Object as source context |
+| `originated_in` | A Memory Object or reference identifies its source Chronicle Domain |
 
 ## 10. Canonical Interpretation Rules
 
@@ -501,6 +505,7 @@ Chronicle records should be interpreted according to the following rules:
 11. AI mentor outputs must remain source-linked, uncertainty-aware, privacy-aware, and identity-aware.
 12. Legacy means continuity of memory, not permanent hierarchy.
 13. Dispute, revision, redaction, and deprecation are normal parts of the system.
+14. Cross-domain memory exchange preserves origin domain identity and does not merge archives.
 
 ## 11. Canonical Non-Goals
 
@@ -518,7 +523,8 @@ Chronicle / Legacy Protocol is not currently:
 - a social ranking platform;
 - an automated governance system;
 - an AI decision-maker;
-- a final archive of truth.
+- a final archive of truth;
+- a centralized network authority.
 
 The current repository is a documentation-first research project.
 
@@ -549,6 +555,7 @@ This document is the canonical architecture reference. Other documents should be
 | [AI Mentor Safety Model](./AI_Mentor_Safety_Model.md) | Defines safe AI-assisted retrieval boundaries |
 | [Governance Context](./Governance_Context.md) | Defines governance memory and decision reasoning |
 | [Chronicle Self-Governance](./Chronicle_Self_Governance.md) | Defines how Chronicle evolves, how its rules may change, and how governance decisions become part of protocol memory |
+| [Chronicle Network Architecture](./Chronicle_Network_Architecture.md) | Defines how Chronicle may evolve into a multi-ecosystem memory network while preserving protocol neutrality, portability, and historical continuity |
 | [Threat Model](./Threat_Model.md) | Defines abuse, manipulation, privacy, and memory-integrity risks |
 | [Related Work](./Related_Work.md) | Places Chronicle in relation to existing systems |
 
@@ -583,15 +590,15 @@ The following areas remain unresolved and should be treated as future specificat
 | Knowledge inheritance criteria | Needed to decide when records inherit, extend, reference, or supersede each other |
 | AI mentor retrieval policy | Needed to prevent hallucination, source distortion, privacy leakage, identity inference, or authority shortcuts |
 | Evaluation methodology | Needed to test whether Chronicle actually improves ecosystem memory |
+| Cross-domain exchange conventions | Needed to define the minimum shared format for Memory Objects to be understood across Chronicle Domains |
 
 ## 15. Recommended Next Specification Documents
 
 The next architecture documents should be specification-oriented rather than idea-oriented:
 
-1. `Chronicle_Network_Architecture.md`
-2. `Research_Methodology_and_Evaluation.md`
-3. `Identity_Linkage_and_Portability_Rules.md`
-4. `Submission_Review_Thresholds.md`
+1. `Research_Methodology_and_Evaluation.md`
+2. `Identity_Linkage_and_Portability_Rules.md`
+3. `Submission_Review_Thresholds.md`
 
 These documents should reduce ambiguity and move Chronicle from concept architecture toward protocol specification readiness.
 
@@ -607,6 +614,7 @@ The architecture is strongest when it remains conservative:
 - preserve identity continuity before identity exposure;
 - preserve privacy before broad disclosure;
 - preserve uncertainty before authority;
-- preserve lineage before legacy.
+- preserve lineage before legacy;
+- preserve domain independence before network participation.
 
 This specification should be used as the current source of truth for how Chronicle components connect and where future research must become more formal.
