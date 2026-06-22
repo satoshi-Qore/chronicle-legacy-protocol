@@ -20,10 +20,26 @@ This document is not production code. It is a specification candidate.
 The lifecycle state machine sits inside the canonical Chronicle flow:
 
 ```text
-Contribution -> Evidence -> Memory Object -> Attestation -> Attestation Authority -> Lifecycle State -> Protocol Memory Layer
+Identity / Pseudonymity
+-> Contribution Submission
+-> Evidence
+-> Memory Object
+-> Evidence Quality
+-> Privacy / Disclosure
+-> Attestation
+-> Attestation Authority
+-> Lifecycle State
+-> Protocol Memory Layer
+-> Chronicle Archive
+-> Reputation Graph
+-> Knowledge Inheritance
+-> AI Mentor
+-> Legacy
 ```
 
 A Memory Object should not be interpreted without its lifecycle state. Lifecycle state determines whether a record is unfinished, submitted, observed, reviewed, accepted, verified, disputed, revised, deprecated, rejected, inherited, or archived.
+
+Contribution submissions have their own intake context before Memory Object formation. This document begins once a candidate Memory Object exists and needs lifecycle tracking.
 
 The canonical architecture is defined in [Canonical Architecture Specification](./Canonical_Architecture_Specification.md).
 
@@ -41,16 +57,16 @@ The lifecycle state machine is designed to:
 
 ## 4. Lifecycle State Definitions
 
-| State | Definition | Can Affect Reputation? | Can Be Used by AI Mentor? |
+| State | Definition | Can Affect Reputation Graph? | Can Be Used by AI Mentor? |
 |---|---|---|---|
-| `draft` | A Memory Object is being prepared and has not entered review | No | No, except as private or unfinished context |
+| `draft` | A candidate Memory Object is being prepared and has not entered review | No | No, except as private or unfinished context |
 | `submitted` | A Memory Object has been submitted with a claim and initial evidence | No or minimal | Only as unreviewed context |
 | `observed` | Evidence exists and can be inspected, but significance has not been reviewed | No or weak | Yes, with clear limitation |
-| `under_review` | Reviewers are evaluating accuracy, scope, evidence quality, privacy, and relevance | No or weak | Only with review-pending label |
+| `reviewed` | Reviewers have evaluated accuracy, scope, evidence quality, privacy, and relevance | Depends on outcome | Yes, with review context and limitations |
 | `needs_revision` | The object requires clearer evidence, narrower scope, or corrected context | No | Only as incomplete context |
 | `accepted` | A relevant reviewer or process accepts the object within a defined scope | Yes, contextual | Yes, with scope and limitations |
 | `verified` | Strong evidence and review support the object with no unresolved core dispute | Yes, stronger contextual | Yes, with source citation |
-| `disputed` | The object, evidence, authorship, scope, or interpretation is challenged | Caution only | Yes, only with dispute label |
+| `disputed` | The object, evidence, authorship, scope, disclosure, or interpretation is challenged | Caution only | Yes, only with dispute label |
 | `revised` | The object has been corrected, clarified, or updated after review or dispute | Depends on outcome | Yes, with revision context |
 | `deprecated` | The object is historically visible but no longer current guidance | Historical only | Yes, with warning and replacement link |
 | `rejected` | The object is false, unsupported, duplicated, abusive, or out of scope | No positive signal | No, except for abuse or historical analysis |
@@ -64,7 +80,7 @@ Lifecycle states can be grouped into five operational categories.
 | Category | States | Purpose |
 |---|---|---|
 | Preparation | `draft`, `submitted` | Prepare and submit candidate memory |
-| Review | `observed`, `under_review`, `needs_revision` | Establish source existence, scope, and reviewability |
+| Review | `observed`, `reviewed`, `needs_revision` | Establish source existence, scope, evidence quality, privacy limits, and reviewability |
 | Acceptance | `accepted`, `verified` | Mark records that can support contextual memory |
 | Correction | `disputed`, `revised`, `deprecated`, `rejected` | Preserve uncertainty, correction, replacement, or invalidation |
 | Continuity | `archived`, `inherited` | Preserve long-term discoverability and knowledge lineage |
@@ -77,7 +93,7 @@ The normal lifecycle path is:
 draft
 -> submitted
 -> observed
--> under_review
+-> reviewed
 -> accepted
 -> verified
 -> archived
@@ -96,14 +112,14 @@ Most real records will not follow this perfect path. Some will require revision,
 | `submitted` | `observed` | Evidence source exists and can be inspected |
 | `submitted` | `needs_revision` | Submission is incomplete, unclear, or missing reviewable context |
 | `submitted` | `rejected` | Claim is unsupported, abusive, duplicate, or outside scope |
-| `observed` | `under_review` | Evidence can be evaluated by an appropriate reviewer or process |
+| `observed` | `reviewed` | Evidence can be evaluated by an appropriate reviewer or process |
 | `observed` | `needs_revision` | Evidence exists but claim scope or context is insufficient |
 | `observed` | `rejected` | Evidence contradicts the claim or reveals invalid submission |
-| `under_review` | `accepted` | Reviewer accepts the record within a defined scope |
-| `under_review` | `verified` | Strong evidence and review support higher-confidence status |
-| `under_review` | `needs_revision` | Reviewer requires correction or additional evidence |
-| `under_review` | `disputed` | Reviewer or participant challenges accuracy, scope, or evidence |
-| `under_review` | `rejected` | Review finds claim invalid, misleading, duplicate, or out of scope |
+| `reviewed` | `accepted` | Reviewer accepts the record within a defined scope |
+| `reviewed` | `verified` | Strong evidence and review support higher-confidence status |
+| `reviewed` | `needs_revision` | Reviewer requires correction or additional evidence |
+| `reviewed` | `disputed` | Reviewer or participant challenges accuracy, scope, disclosure, or evidence |
+| `reviewed` | `rejected` | Review finds claim invalid, misleading, duplicate, or out of scope |
 | `needs_revision` | `submitted` | Submitter updates the object and resubmits it |
 | `needs_revision` | `rejected` | Required revision is not possible or claim remains invalid |
 | `accepted` | `verified` | Additional evidence, review, or authority supports stronger confidence |
@@ -117,7 +133,7 @@ Most real records will not follow this perfect path. Some will require revision,
 | `disputed` | `accepted` | Dispute is resolved and record remains valid within scope |
 | `disputed` | `rejected` | Dispute shows the record is invalid or harmful |
 | `disputed` | `archived` | Disputed record is preserved for historical context |
-| `revised` | `under_review` | Revised record requires another review cycle |
+| `revised` | `reviewed` | Revised record requires another review cycle |
 | `revised` | `accepted` | Revision resolves the issue and reviewer accepts the record |
 | `revised` | `verified` | Revision plus evidence supports higher-confidence status |
 | `revised` | `deprecated` | Revision identifies replacement or supersession |
@@ -154,10 +170,10 @@ Review gates define the minimum checks required before important lifecycle trans
 |---|---|
 | `draft` -> `submitted` | Required fields gate |
 | `submitted` -> `observed` | Evidence existence gate |
-| `observed` -> `under_review` | Reviewability gate |
-| `under_review` -> `accepted` | Scope acceptance gate |
+| `observed` -> `reviewed` | Reviewability gate |
+| `reviewed` -> `accepted` | Scope acceptance gate |
 | `accepted` -> `verified` | Strong evidence gate |
-| `under_review` -> `rejected` | Rejection rationale gate |
+| `reviewed` -> `rejected` | Rejection rationale gate |
 | `accepted` -> `disputed` | Valid dispute gate |
 | `disputed` -> `revised` | Correction evidence gate |
 | `accepted` -> `deprecated` | Supersession or obsolescence gate |
@@ -171,6 +187,7 @@ A Memory Object should not move from `draft` to `submitted` unless it includes:
 - description;
 - contributor or source reference;
 - contribution or record type;
+- submission reference or intake context;
 - at least one evidence reference or explanation of missing evidence;
 - context tags;
 - privacy or disclosure note where relevant.
@@ -183,12 +200,14 @@ Observation confirms existence, not value.
 
 ### 9.3 Reviewability Gate
 
-A Memory Object should not move to `under_review` unless a reviewer can evaluate:
+A Memory Object should not move to `reviewed` unless a reviewer can evaluate:
 
 - what is being claimed;
 - which evidence supports it;
 - what scope is being requested;
+- what evidence quality limitations exist;
 - whether sensitive information is present;
+- whether disclosure or redaction constraints apply;
 - whether the object is duplicate, spam, or misleading.
 
 ### 9.4 Scope Acceptance Gate
@@ -227,7 +246,7 @@ A dispute should identify at least one challenge type:
 - evidence dispute;
 - scope dispute;
 - usefulness dispute;
-- privacy concern;
+- privacy or disclosure concern;
 - duplicate claim;
 - outdated record;
 - misleading interpretation;
@@ -251,7 +270,7 @@ This table describes conceptual permissions. It does not define implementation a
 | Attestor | Issue scoped attestations after review |
 | Domain Reviewer | Review specialized categories such as infrastructure, security, governance, localization, or research |
 | Archivist | Archive, preserve metadata, mark availability, add redaction notes |
-| Disputer | Challenge records, evidence, attestations, or inheritance relationships |
+| Disputer | Challenge records, evidence, attestations, disclosure decisions, or inheritance relationships |
 | Maintainer | Review repository-scoped or documentation-scoped records |
 | Governance Participant | Review governance context, proposal history, and decision records |
 | AI Mentor Interface | Retrieve records according to lifecycle state; cannot transition records |
@@ -267,7 +286,7 @@ AI systems should not perform lifecycle transitions. They may assist discovery, 
 | `draft` | No signal |
 | `submitted` | No positive signal; pending context only |
 | `observed` | Confirms activity exists, not contribution value |
-| `under_review` | Weak pending signal only |
+| `reviewed` | Context depends on review result and attestation scope |
 | `needs_revision` | No positive signal until resolved |
 | `accepted` | Contextual positive signal within accepted scope |
 | `verified` | Stronger contextual signal within domain and scope |
@@ -309,15 +328,15 @@ stateDiagram-v2
     submitted --> needs_revision
     submitted --> rejected
 
-    observed --> under_review
+    observed --> reviewed
     observed --> needs_revision
     observed --> rejected
 
-    under_review --> accepted
-    under_review --> verified
-    under_review --> needs_revision
-    under_review --> disputed
-    under_review --> rejected
+    reviewed --> accepted
+    reviewed --> verified
+    reviewed --> needs_revision
+    reviewed --> disputed
+    reviewed --> rejected
 
     needs_revision --> submitted
     needs_revision --> rejected
@@ -336,7 +355,7 @@ stateDiagram-v2
     disputed --> rejected
     disputed --> archived
 
-    revised --> under_review
+    revised --> reviewed
     revised --> accepted
     revised --> verified
     revised --> deprecated
@@ -366,6 +385,7 @@ Each lifecycle transition should preserve transition metadata.
 | `attestation_reference` | Related attestation, if applicable |
 | `dispute_reference` | Related dispute, if applicable |
 | `revision_reference` | Related revision, if applicable |
+| `disclosure_reference` | Related privacy, disclosure, or redaction context, if applicable |
 | `scope_note` | Scope and limitations of the transition |
 
 State transitions should not silently overwrite prior lifecycle history.
